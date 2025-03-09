@@ -1,540 +1,255 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <meta name="keywords" content="" />
-        
-        <!-- Page Title -->
-        <title>Research | Wenhao Chai</title>
-
-        <!-- Favicons -->
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
-        <link rel="manifest" href="assets/img/favicons/site.webmanifest">
-        <link rel="mask-icon" href="assets/img/favicons/safari-pinned-tab.svg" color="#f23838">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
-
-        <!-- Vendor Stylesheets -->
-        <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700%7CRoboto:300,400,700" rel="stylesheet">
-        <link href="assets/vendor/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
-        <!-- <link href="./assets/vendor/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet"> -->
-        <link href="assets/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.css" rel="stylesheet">
-        <link href="assets/vendor/aos/dist/aos.css" rel="stylesheet">
-
-        <!-- Theme Stylesheets -->
-        <link href="assets/css/theme.css" rel="stylesheet">
-
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22940424-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-22940424-1');
-        </script>
-    </head>
-
-    <body>
-        <!-- Preloader -->
-        <div class="preloader">
-            <div class="spinner">
-                <div class="circles"></div>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究 - Scale Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .research-section {
+            padding: 40px 0;
+        }
+        .research-section:nth-child(odd) {
+            background-color: #f1f3f9;
+        }
+        .research-section:nth-child(even) {
+            background-color: #fff;
+        }
+        .research-header {
+            margin-bottom: 30px;
+        }
+        .research-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        .research-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .research-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        .research-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .project-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .project-card h3 {
+            color: #1a237e;
+            margin-bottom: 15px;
+        }
+        @media (max-width: 768px) {
+            .research-content {
+                flex-direction: column;
+            }
+            .research-image {
+                order: 1;
+            }
+            .research-text {
+                order: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Scale Lab</h1>
+                <p>Spatial Cognition and Automative Learning Laboratory</p>
             </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="research.html" class="active">研究</a></li>
+                    <li><a href="people.html">团队</a></li>
+                    <li><a href="publications.html">发表论文</a></li>
+                    <li><a href="news.html">新闻动态</a></li>
+                    <li><a href="resources.html">资源</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
-        <!-- End of Preloader -->
+    </header>
 
+    <section class="page-header">
+        <div class="container">
+            <h1>研究</h1>
+        </div>
+    </section>
 
-        <!-- Header -->
-        <header class="spyre-navbar navbar navbar-expand-lg bg-dark navbar-dark fixed-top align-items-center" data-transparent data-text-color="#ffffff">
-            <div class="container">
-                <a class="navbar-brand mr-lg-5 mr-xl-7" href="index.html">
-                    <img src="assets/img/logo.png" class="d-none d-lg-block" alt="MMLab" width="183" />
-                    <img src="assets/img/logo.png" class="d-block d-lg-none" alt="MMLab" width="150" />
-                </a>
+    <section class="research-overview">
+        <div class="container">
+            <h2>研究概述</h2>
+            <p>Scale Lab的研究立足于空间认知和自动化学习的交叉领域，致力于开发能够理解空间信息并自主学习的智能系统。我们的研究涵盖了理论基础和实际应用，旨在推动人工智能和机器人技术的发展。</p>
+        </div>
+    </section>
 
-                <!-— Desktop Menu -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="pl-2 nav-item navbar-text"><a href="index.html" class="nav-link text-400">Home</a></li>
-                        <!-- <li class="pl-5 nav-item navbar-text"><a href="team.html" class="nav-link text-400">Team</a></li> -->
-                        <li class="pl-5 nav-item navbar-text"><a href="research.html" class="nav-link">Research</a></li>
-                        <li class="pl-5 nav-item navbar-text"><a href="publication_year.html" class="nav-link text-400">Publications</a></li>    <li class="pl-5 nav-item navbar-text"><a href="downloads.html" class="nav-link text-400">Code | Datasets</a></li>
-                        <!-- <li class="pl-5 nav-item navbar-text"><a href="careers.html" class="nav-link text-400">Join Us</a></li> -->
+    <section class="research-section" id="spatial-cognition">
+        <div class="container">
+            <div class="research-header">
+                <h2>空间认知 (Spatial Cognition)</h2>
+            </div>
+            <div class="research-content">
+                <div class="research-text">
+                    <p>空间认知研究关注智能体如何感知、理解和表征空间信息。我们研究智能体如何在复杂环境中导航、定位自身位置、理解空间关系，以及如何利用这些空间知识来完成任务。</p>
+                    <h3>研究方向</h3>
+                    <ul>
+                        <li><strong>空间表征学习</strong>：开发能够有效表征空间信息的算法和模型</li>
+                        <li><strong>导航与路径规划</strong>：研究智能体如何在未知环境中规划路径和导航</li>
+                        <li><strong>空间记忆与推理</strong>：探索智能体如何记忆和推理空间信息</li>
+                        <li><strong>多模态空间感知</strong>：研究视觉、触觉等多种感知模态如何协同理解空间</li>
                     </ul>
                 </div>
-                <!-— End of Desktop Menu -->
-
-                <div class="menu-toggle d-block d-lg-none">
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="cross">
-                        <span></span>
-                        <span></span>
-                    </div>
+                <div class="research-image">
+                    <img src="images/spatial-cognition.jpg" alt="空间认知研究">
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Spyrenav Overlay -->
-            <div class="spyre-navbar-overlay overlay-slide">
-                <div class="container">
-                    <div class="row">
-                        <div class="spyre-navbar-nav-container col-md-6 col-lg-5 col-xl-4 bg-white ext-l">
-                            <nav class="spyre-navbar-nav">
-                                <ul class="spyre-nav">
-                                    <li class="spyre-nav-item"><a href="index.html" class="spyre-nav-link">Home</a></li>
-                                    <li class="spyre-nav-item"><a href="research.html" class="spyre-nav-link">Our Research</a></li>
-                                    <!-- <li class="spyre-nav-item"><a href="team.html" class="spyre-nav-link">Team</a></li> -->
-                                    <li class="spyre-nav-item dropdown">
-                                        <a href="research.html#" class="spyre-nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Publications</a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li class="dropdown-menu-item"><a href="publication_topic.html" class="dropdown-menu-link">By Topic</a></li>
-                                            <li class="dropdown-menu-item"><a href="publication_year.html" class="dropdown-menu-link">By Year</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="spyre-nav-item"><a href="downloads.html" class="spyre-nav-link">Code and Datasets</a></li>
-                                    <!-- <li class="spyre-nav-item"><a href="careers.html" class="spyre-nav-link">Join Us</a></li> -->
-                                </ul>
-                            </nav>
-                        </div>
-        
-                        <div class="col-lg-7 col-xl-8 d-none d-md-block">
-                            <div class="d-flex flex-column h-100">
-                                <div class="d-flex h-100">
-                                    <div class="align-self-center">
-                                        <div class="text-uppercase"
-                                            data-background-text="computer vision"
-                                            data-color="#7079a2"
-                                            data-opacity="0.02"
-                                            data-font-size="85px"
-                                            data-font-weight="500"
-                                            data-offset-x="-5%"
-                                            data-letter-spacing="5px"
-                                        ></div>
-                                        <div class="text-uppercase"
-                                            data-background-text="mmlab"
-                                            data-color="#7079a2"
-                                            data-opacity="0.04"
-                                            data-font-size="175px"
-                                            data-font-weight="500"
-                                            data-offset-x="29%"
-                                            data-padding="7vh 0 2vh 0"
-                                            data-letter-spacing="5px"
-                                        ></div>
-                                        <div class="text-uppercase"
-                                            data-background-text="deep learning"
-                                            data-color="#7079a2"
-                                            data-opacity="0.03"
-                                            data-font-size="140px"
-                                            data-font-weight="500"
-                                            data-offset-x="15%"
-                                            data-letter-spacing="5px"
-                                        ></div>
-                                    </div>
-                                </div>
-                                
-                                <div class="mt-auto">
-                                    <ul class="nav flex-nowrap float-right">
-                                        <li class="nav-item">
-                                            <a class="nav-link px-2" href="https://twitter.com/re5e1f" target="_blank">
-                                                <i class="zmdi zmdi-twitter text-white"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <section class="research-section" id="automative-learning">
+        <div class="container">
+            <div class="research-header">
+                <h2>自动化学习 (Automative Learning)</h2>
+            </div>
+            <div class="research-content">
+                <div class="research-image">
+                    <img src="images/automative-learning.jpg" alt="自动化学习研究">
+                </div>
+                <div class="research-text">
+                    <p>自动化学习研究关注如何开发能够自主学习和适应的算法。我们的目标是创建能够在最小人类干预下自主学习和改进的系统。</p>
+                    <h3>研究方向</h3>
+                    <ul>
+                        <li><strong>强化学习</strong>：开发能够通过与环境交互学习最优策略的算法</li>
+                        <li><strong>元强化学习</strong>：研究如何快速适应新任务和环境</li>
+                        <li><strong>自监督学习</strong>：探索如何利用未标记数据进行学习</li>
+                        <li><strong>迁移学习</strong>：研究如何将学到的知识迁移到新任务和领域</li>
+                    </ul>
                 </div>
             </div>
-            <!-- End of Spyrenav Overlay -->
-        </header>
-        <!-- End of Header -->
+        </div>
+    </section>
 
-
-        <!-- Main Content -->
-        <main class="main minh-100vh">
-
-            <!-- Section -->
-            <section class="py-0 overflow-hidden text-center">
-                <div class="bg-container overlay overlay-dark-60 parallax" data-rellax-percentage="0.5" style="background-image: url(assets/img/backgrounds/bg-01.jpg)"></div>
-                <div class="container">
-                    <div class="row h-100vh align-items-center">
-                        <div class="col">
-                            <h1 class="text-white text-uppercase fs-4 fs-lg-6">Our Research</h1>
-                        </div>
-                    </div>
+    <section class="research-section" id="embodied-ai">
+        <div class="container">
+            <div class="research-header">
+                <h2>具身人工智能 (Embodied AI)</h2>
+            </div>
+            <div class="research-content">
+                <div class="research-text">
+                    <p>具身人工智能研究关注物理世界中的智能体如何通过与环境交互来学习和完成任务。</p>
+                    <h3>研究方向</h3>
+                    <ul>
+                        <li><strong>具身导航</strong>：研究智能体如何在物理环境中导航</li>
+                        <li><strong>视觉语言预训练</strong>：探索如何利用视觉和语言信息进行预训练</li>
+                        <li><strong>多模态感知与决策</strong>：研究如何整合多种感知模态进行决策</li>
+                        <li><strong>具身链式思考</strong>：探索具身智能体如何进行推理和规划</li>
+                    </ul>
                 </div>
-            </section>
-            <!-- End of Section -->
-
-            <!-- Section -->
-            <section class="pb-0">
-                <div class="container">
-                    <div class="row justify-content-between">
-                        <div class="col-lg-6 mb-7 mb-lg-0">
-                            <h3 class="my-0 fs-1 fw-medium text-secondary text-uppercase text-center text-lg-left">Research</h3>
-                            <h2 class="mb-5 fw-medium text-primary text-center text-lg-left">Wenhao Chai</h2>
-                            
-                            <p class="mb-4 text-justify">
-                                Our research currently and primarily focus on video understanding, generative model, and embodied agent. At the beginning of my research, I mainly focused on human pose and motion estimation.
-                            </p>
-                            <p class="mb-4 text-justify"></p>
-                                I believe it is achievable for multimodal models to reach or surpass human-level performance. To achieve this goal, I also believe it is necessary to appropriately combine various pretrained models that have been developed using different training objectives, such as self-supervised learning, contrastive learning, and generative pretraining in language field. On the other hand, building an agent-like inference system will also enable pretrained models to perform more effectively.
-                            </p>
-
-                            <div class="text-center text-lg-left">
-                                <a href="publication_year.html" class="btn btn-primary btn-lg mt-4 px-6">Publication<i class="zmdi zmdi-link ml-3"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <img src="assets/img/backgrounds/sm-bg-00.jpg" class="img-fluid w-100 mb-4 mb-lg-0" alt="" />
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End of Section -->
-
-            <!-- Section -->
-            <section>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-10">
-                            <div class="row justify-content-center">
-
-                                <div class="col-lg-6 mb-5">
-                                    <div class="d-flex flex-row" data-aos="fade-right">
-                                        <div>
-                                            <i class="zmdi zmdi-collection-image zmdi-hc-fw zmdi-hc-3x mr-1"></i>
-                                        </div>
-                                        <div class="flex-shrink-1">
-                                            <h2 class="mb-4 fs-1 fw-medium text-uppercase">Aurora Series: <br>Multimodal Understanding</h2>
-                                            <p class="fs--1 text-justify">
-                                                Recently, integrating video foundation models and large language models to build a multimodal understanding system. Starting with AuroraCap, a state-of-the-art image and video captioning model. We also propose <a href="https://rese1f.github.io/MovieChat/">[MovieChat]</a> to support ultra long video understanding tasks with new collected benchmark.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 mb-5">
-                                    <div class="d-flex flex-row" data-aos="fade-leftt">
-                                        <div>
-                                            <i class="zmdi zmdi-settings zmdi-hc-spin zmdi-hc-fw zmdi-hc-3x mr-1"></i>
-                                        </div>
-                                        <div class="flex-shrink-1">
-                                            <h2 class="mb-4 fs-1 fw-medium text-uppercase">STEVE Series: <br>Embodied Agent</h2>
-                                            <p class="fs--1 text-justify">
-                                                Large language models (LLMs) have achieved impressive progress on several open-world tasks. Recently, using LLMs to build embodied agents has been a hotspot. We propose <a href="https://rese1f.github.io/STEVE/">[STEVE]</a> <a href="https://arxiv.org/abs/2403.08282">[STEVE-1.5]</a> <a href="https://arxiv.org/abs/2404.04619">[STEVE-2]</a>, a comprehensive and visionary embodied agent series in the Minecraft virtual environment.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 mb-5">
-                                    <div class="d-flex flex-row" data-aos="fade-right">
-                                        <div>
-                                            <i class="zmdi zmdi-brush zmdi-hc-fw zmdi-hc-3x mr-1"></i>
-                                        </div>
-                                        <div class="flex-shrink-1">
-                                            <h2 class="mb-4 fs-1 fw-medium text-uppercase">Generative Models</h2>
-                                            <p class="fs--1 text-justify">
-                                                Artificial Intelligence Generated Content (AIGC) has been a hotpot topic these days. We has been working on various tasks related to generative AI, including image editing <a href="https://arxiv.org/abs/2302.06826">[Diffashion]</a>, video editing <a href="https://rese1f.github.io/StableVideo/">[StableVideo]</a>, 3D object generation <a href="https://arxiv.org/abs/2309.03599">[Consist3D]</a> and city layout generation <a href="https://rese1f.github.io/CityGen/">[CityGen]</a>. 
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 mb-5">
-                                    <div class="d-flex flex-row" data-aos="fade-left">
-                                        <div>
-                                            <i class="zmdi zmdi-run zmdi-hc-fw zmdi-hc-3x mr-1"></i>
-                                        </div>
-                                        <div class="flex-shrink-1">
-                                            <h2 class="mb-4 fs-1 fw-medium text-uppercase">Human Pose and Motion</h2>
-                                            <p class="fs--1 text-justify">
-                                                Human pose estimation is an essential computer vision task which aims to estimate the coordinates of joints from single-frame images or videos. Our research focus on novel architecture <a href="https://zhyjiang.github.io/ZeDO-proj/">[ZeDO]</a>, domain adaptation <a href="https://arxiv.org/abs/2303.16456">[PoseDA]</a> <a href="https://arxiv.org/abs/2308.09678">[PoSynDA]</a>, as well as the large-scale pre-training <a href="https://arxiv.org/abs/2306.17201">[MPM]</a> <a href="https://arxiv.org/abs/2311.16477">[UniHPE]</a>. We also interested in animal <a href="https://rese1f.github.io/UniAP/">[UniAP]</a> and infent <a href="https://zhyjiang.github.io/ZeDO-proj/#infantZeDO">[ZeDO-i]</a> pose estimation.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </section>
-            <!-- End of Section -->
-
-            <!-- Section -->
-            <!-- <section class="py-8 py-md-11 overflow-hidden">
-                <div class="bg-container parallax" data-rellax-percentage="0.5" style="background-image: url(assets/img/images/basicvsr.jpg);"></div>
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <a data-fancybox href="https://www.youtube.com/watch?v=iIDml09CUc4" class="icon mx-auto align-items-center text"><i class="zmdi zmdi-play zmdi-hc-4x"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-            <!-- End of Section -->
-
-            <!-- Section -->
-            <section class="pt-6 py-0">
-                <div class="container">
-                    <h3 class="my-0 fs-1 fw-medium text-primary text-uppercase text-center text-lg-left">Research</h3>
-                    <h2 class="mb-5 mb-lg-0 fw-medium text-secondary text-uppercase text-center text-lg-left">Video Demos</h2>
-
-                    <div class="row">
-                        <div class="col-lg-3 order-lg-1">
-                            <div class="pb-3 py-lg-9" data-toggle="sticky">
-                                <h5 class="mb-4 text-uppercase text-600">Videos</h5>
-                                <ul class="mb-6 list-unstyled text-600">
-                                    <li class="mb-1"><a href="javascript:;" data-filter="*" class="text-600">All</a></li>
-                                    <li class="mb-1"><a href="javascript:;" data-filter=".aigc" class="text-600">Generative Models</a></li>
-                                    <li class="mb-1"><a href="javascript:;" data-filter=".agent" class="text-600">Embodied Agent</a></li>
-                                    <li class="mb-1"><a href="javascript:;" data-filter=".pose" class="text-600">Human Pose and Motion</a></li>
-                                    <li class="mb-1"><a href="javascript:;" data-filter=".video" class="text-600">Video Understanding</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-9 order-lg-2 py-6 py-lg-9 px-0">
-                            <div class="grid">
-                                <div class="row no-gutters mt-neg-3">
-                                    <div class="col-md-6 col-lg-4 p-3 grid-item agent">
-                                        <a data-fancybox="gallery" href="https://www.youtube.com/watch?v=ZiH1VuR-9GY" class="position-relative">
-                                            <img class="img-fluid w-100" src="https://img.youtube.com/vi/ZiH1VuR-9GY/0.jpg" alt="" />
-                                            <span class="icon icon-sm position-absolute mt-neg-6 ml-3">
-                                                <i class="zmdi zmdi-play zmdi-hc-2x"></i>
-                                            </span>
-                                        </a>
-                                        <h6>STEVE 
-                                        </h6>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 p-3 grid-item aigc">
-                                        <a data-fancybox="gallery" href="https://www.youtube.com/watch?v=Q3-GT8du7Mo" class="position-relative">
-                                            <img class="img-fluid w-100" src="https://img.youtube.com/vi/Q3-GT8du7Mo/0.jpg" alt="" />
-                                            <span class="icon icon-sm position-absolute mt-neg-6 ml-3">
-                                                <i class="zmdi zmdi-play zmdi-hc-2x"></i>
-                                            </span>
-                                        </a>
-                                        <h6>StableVideo <a href="https://huggingface.co/spaces/Reself/StableVideo" target="_blank">[Hugging Face Demo]</a>
-                                        </h6>
-                                    </div>
-
-                                    <div class="col-md-6 col-lg-4 p-3 grid-item video">
-                                        <a data-fancybox="gallery" href="https://www.youtube.com/watch?v=rNzCzflVqBU" class="position-relative">
-                                            <img class="img-fluid w-100" src="https://img.youtube.com/vi/rNzCzflVqBU/0.jpg" alt="" />
-                                            <span class="icon icon-sm position-absolute mt-neg-6 ml-3">
-                                                <i class="zmdi zmdi-play zmdi-hc-2x"></i>
-                                            </span>
-                                        </a>
-                                        <h6>MovieChat
-                                        </h6>
-                                    </div>
-                                    
-                                    <div class="col-md-6 col-lg-4 p-3 grid-item pose">
-                                        <a data-fancybox="gallery" href="https://www.youtube.com/watch?v=boKSS3-H2qg" class="position-relative">
-                                            <img class="img-fluid w-100" src="https://img.youtube.com/vi/boKSS3-H2qg/0.jpg" alt="" />
-                                            <span class="icon icon-sm position-absolute mt-neg-6 ml-3">
-                                                <i class="zmdi zmdi-play zmdi-hc-2x"></i>
-                                            </span>
-                                        </a>
-                                        <h6>UniAP
-                                        </h6>
-                                    </div>
-                                    
-        
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End of Section -->
-
-            <!-- Section -->
-            <section id="section-1" class="py-0">
-                <div class="container-fluid px-0">
-                    <div class="row no-gutters">
-                        <div class="col-md-6 py-6 py-lg-8 bg-blue-light overflow-hidden">
-                            <div class="row h-100 align-items-center">
-                                <div class="col px-5 px-lg-8 px-xl-10">
-                                    <h3 class="my-0 fs-1 fw-medium text-primary text-center text-lg-left">Selected</h3>
-                                    <h2 class="mb-4 fw-medium text-secondary text-center text-lg-left">Media Coverage | Blog</h2>
-                                    <ul class="mb-0 text-justify">
-                                        <li><a href="https://mp.weixin.qq.com/s/OGI9kbH80sc9oIWWnntEIA" target="_blank">视觉模型+大语言模型: 首个支持10K+帧长视频理解任务的新型框架</a><br/>By PaperWeekly</li>
-                                        <li><a href="https://twitter.com/_akhaliq/status/1694614951997137083" target="_blank">StableVideo: Text-driven Consistency-aware Diffusion Video Editing</a><br/>By @_akhaliq</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 py-8">
-                            <div class="bg-container" style="background-image: url(assets/img/backgrounds/bg-03.jpg);"></div>
-                            <!-- <span class="position-absolute mt-neg-7 ml-3">
-                                <p class="text-white fs--1"><i>Source:</i> <a href="https://twitter.com/Luke_Aaron/status/1224293674105954309" target="_blank" class="text-white"><i>@Luke_Aaron</i></a></p>
-                            </span> -->
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End of Section --> 
-
-
-            <!-- Section -->
-            <!-- <section id="section-4">
-                <div class="container">
-                    <h3 class="my-0 fs-1 fw-medium text-primary text-uppercase text-center text-lg-left">Organized</h3>
-                    <h2 class="mb-5 fw-medium text-secondary text-center text-lg-left">Workshops | Tutorials</h2>
-                    
-                    <div class="row justify-content-left">
-                        <div class="col-lg-4 mb-4 mb-lg-6" data-aos="fade-up" data-aos-duration="1000">
-                            <a href="http://mipi-challenge.org/" target="_blank" class="mb-3 d-block position-relative">
-                                <div class="position-absolute d-flex justify-content-center align-items-center w-100 h-100 bg-dark rounded text-white">
-                                    <i class="fas fa-link fa-2x"></i>
-                                </div>
-                                <img src="assets/img/printscreens/mipi.jpg" alt="" class="position-relative img-fluid w-100 shadow-lg rounded opacity-1-hover" />
-                            </a>
-                            <h4 class="text-center"><a href="http://mipi-challenge.org/" target="_blank" class="text-body">Mobile Intelligent Photography & Imaging Workshop, 2022-2023</a></h4>
-                        </div>
-                        <div class="col-lg-4 mb-4 mb-lg-6" data-aos="fade-up" data-aos-duration="1000">
-                            <a href="https://prompting-in-vision.github.io/" target="_blank" class="mb-3 d-block position-relative">
-                                <div class="position-absolute d-flex justify-content-center align-items-center w-100 h-100 bg-dark rounded text-white">
-                                    <i class="fas fa-link fa-2x"></i>
-                                </div>
-                                <img src="assets/img/backgrounds/bg-42.jpg" alt="" class="position-relative img-fluid w-100 shadow-lg rounded opacity-1-hover" />
-                            </a>
-                            <h4 class="text-center"><a href="https://prompting-in-vision.github.io/" target="_blank" class="text-body">Tutorial on Prompting in Vision, 2023</a></h4>
-                        </div>
-                        <div class="col-lg-4 mb-4 mb-lg-6" data-aos="fade-up" data-aos-duration="1000">
-                            <a href="cvpr_ntu/seminar_2023/index.html" class="mb-3 d-block position-relative">
-                                <div class="position-absolute d-flex justify-content-center align-items-center w-100 h-100 bg-dark rounded text-white">
-                                    <i class="fas fa-link fa-2x"></i>
-                                </div>
-                                <img src="assets/img/printscreens/precvpr_ntu.jpg" alt="" class="position-relative img-fluid w-100 shadow-lg rounded opacity-1-hover" />
-                            </a>
-                            <h4 class="text-center"><a href="cvpr_ntu/seminar_2023/index.html" class="text-body">Pre-CVPR@NTU 2023</a></h4>
-                        </div>
-                        <div class="col-lg-4 mb-4 mb-lg-6" data-aos="fade-up" data-aos-duration="1000">
-                            <a href="https://sense-human.github.io/" target="_blank" class="mb-3 d-block position-relative">
-                                <div class="position-absolute d-flex justify-content-center align-items-center w-100 h-100 bg-dark rounded text-white">
-                                    <i class="fas fa-link fa-2x"></i>
-                                </div>
-                                <img src="assets/img/backgrounds/bg-40.jpg" alt="" class="position-relative img-fluid w-100 shadow-lg rounded opacity-1-hover" />
-                            </a>
-                            <h4 class="text-center"><a href="https://sense-human.github.io/" target="_blank" class="text-body">Workshop on Sensing, Understanding and Synthesizing Humans, 2019-2022</a></h4>
-                        </div>
-                        <div class="col-lg-4 mb-4 mb-lg-6" data-aos="fade-up" data-aos-duration="1000">
-                            <a href="openmmlab/workshop_2021/index.html" class="mb-3 d-block position-relative">
-                                <div class="position-absolute d-flex justify-content-center align-items-center w-100 h-100 bg-dark rounded text-white">
-                                    <i class="fas fa-link fa-2x"></i>
-                                </div>
-                                <img src="assets/img/printscreens/openmmlab_workshop.jpg" alt="" class="position-relative img-fluid w-100 shadow-lg rounded opacity-1-hover" />
-                            </a>
-                            <h4 class="text-center"><a href="openmmlab/workshop_2021/index.html" class="text-body">OpenMMLab Workshop 2021</a></h4>
-                        </div>
-                        <div class="col-lg-4 mb-4 mb-lg-6" data-aos="fade-up" data-aos-duration="1000">
-                            <a href="https://wider-challenge.org/2019.html" target="_blank" class="mb-3 d-block position-relative">
-                                <div class="position-absolute d-flex justify-content-center align-items-center w-100 h-100 bg-dark rounded text-white">
-                                    <i class="fas fa-link fa-2x"></i>
-                                </div>
-                                <img src="assets/img/printscreens/widerface.jpg" alt="" class="position-relative img-fluid w-100 shadow-lg rounded opacity-1-hover" />
-                            </a>
-                            <h4 class="text-center"><a href="https://wider-challenge.org/2019.html" target="_blank" class="text-body">WIDER Challenge 2018, 2019</a></h4>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-            <!-- End of Section -->
-          
-        </main>
-        <!-- End of Main Content -->
-
-
-        <!-- Footer -->
-        <footer class="footer_p text-white" style="background-image: url(assets/img/logo-small.png)">
-            <div class="container d-flex h-100">
-                <div class="row flex-grow-1">
-                    <div class="col-lg-3 pt-3 ext-l bg-dark text-center text-lg-left">
-                        <div class="d-flex flex-column h-100">
-                            <div class="pt-5 pt-lg-8 pb-4">
-                                <img src="assets/img/logo-small.png" alt="" width="108" class="mb-4" />
-                                <p class="mb-4 mt-3 fs--1"><br />
-                                Wenhao Chai <br />
-                                University of Washington<br />
-                                Seattle, WA 98195</p>
-        
-                                <p class="fs--1">
-                                <span class="text-white"><i class="zmdi zmdi-email zmdi-hc-fw mr-1"></i>wchai at uw.edu</span><br />
-                                <span class="text-white"><i class="zmdi zmdi-twitter zmdi-hc-fw mr-1"></i><a href="https://twitter.com/re5e1f" target="_blank" class="text-white">@re5e1f</a></span></p>
-                            </div>
-    
-                            <!-- <ul class="mt-4 mt-lg-auto mb-5 mb-lg-0 list-unstyled list-inline">
-                                <li class="mr-3 list-inline-item">
-                                    <a href="https://twitter.com/re5e1f" target="_blank">
-                                        <i class="zmdi zmdi-twitter text-white"></i>
-                                    </a>
-                                </li>
-                            </ul> -->
-                        </div>
-                    </div>
-
-                    <div class="col d-flex flex-column mb-2 mt-3 pl-lg-7">
-                        <div class="row pt-5 pt-lg-8 pb-4 pb-lg-6">
-                            <div class="col-6 col-lg-3">
-                                <h6 class="mb-1 mb-lg-4 text-uppercase">Publications</h6>
-                                <ul class="pt-2 mb-5 fw-light list-unstyled">
-                                    <li class="my-1"><a href="publication_topic.html" class="text-white">By Topic</a></li>
-                                    <li class="my-1"><a href="publication_year.html" class="text-white">By Year</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <h6 class="mb-1 mb-lg-4 text-uppercase">About</h6>
-                                <ul class="pt-2 mb-5 fw-light list-unstyled">
-                                    <li class="my-1"><a href="research.html" class="text-white">Our Research</a></li>
-                                    <!-- <li class="my-1"><a href="team.html" class="text-white">Team</a></li>
-                                    <li class="my-1"><a href="careers.html" class="text-white">Join Us</a></li> -->
-                                </ul>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <h6 class="mb-1 mb-lg-4 text-uppercase">Open Source</h6>
-                                <ul class="pt-2 mb-5 fw-light list-unstyled">
-                                    <li class="my-1"><a href="downloads.html" class="text-white">Code and Datasets</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="mt-auto d-flex justify-content-between">
-                            <span class="fs--3 fs-lg--2">&copy; Wenhao Chai, 2024</span>
-                        </div>
-                    </div>
+                <div class="research-image">
+                    <img src="images/embodied-ai.jpg" alt="具身人工智能研究">
                 </div>
             </div>
-        </footer>
-        <!-- End of Footer -->
+        </div>
+    </section>
 
+    <section class="research-section" id="generative-robot-agent">
+        <div class="container">
+            <div class="research-header">
+                <h2>生成式机器人代理 (Generative Robot Agent)</h2>
+            </div>
+            <div class="research-content">
+                <div class="research-image">
+                    <img src="images/generative-robot.jpg" alt="生成式机器人代理研究">
+                </div>
+                <div class="research-text">
+                    <p>生成式机器人代理研究关注如何利用生成模型（如扩散模型）来规划和执行任务。</p>
+                    <h3>研究方向</h3>
+                    <ul>
+                        <li><strong>基于扩散模型的规划</strong>：研究如何利用扩散模型进行任务规划</li>
+                        <li><strong>技能抽象与分层规划</strong>：探索如何通过技能抽象进行分层规划</li>
+                        <li><strong>自适应规划</strong>：研究如何根据环境变化调整规划</li>
+                        <li><strong>多智能体协作</strong>：探索多个智能体如何协作完成任务</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Core Javascripts -->
-        <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-        <script src="assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-        <script src="assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <section class="research-projects">
+        <div class="container">
+            <h2>研究项目</h2>
+            
+            <div class="project-card" id="embodiedgpt">
+                <h3>EmbodiedGPT</h3>
+                <p>EmbodiedGPT是一个通过具身链式思考进行视觉语言预训练的框架。该项目旨在开发能够理解视觉信息并通过语言进行推理的智能体，使其能够在物理环境中完成复杂任务。</p>
+                <p>通过结合视觉感知和语言理解，EmbodiedGPT能够在各种环境中执行导航、操作和交互任务。该框架利用具身链式思考方法，使智能体能够将复杂任务分解为一系列可管理的步骤，并通过视觉和语言的结合进行推理和决策。</p>
+            </div>
+            
+            <div class="project-card" id="skilldiffuser">
+                <h3>SkillDiffuser</h3>
+                <p>SkillDiffuser是一个基于扩散模型的分层规划框架，通过技能抽象实现可解释的任务执行。该项目旨在开发能够将复杂任务分解为可管理的子任务，并通过学习技能抽象来提高规划效率和可解释性。</p>
+                <p>SkillDiffuser通过学习技能抽象，能够在不同层次上理解和执行任务，从高层目标到低层动作。这种分层方法不仅提高了规划效率，还增强了系统的可解释性，使人类能够更好地理解智能体的决策过程。</p>
+            </div>
+            
+            <div class="project-card" id="adaptdiffuser">
+                <h3>AdaptDiffuser</h3>
+                <p>AdaptDiffuser是一个将扩散模型作为自适应自进化规划器的框架。该项目旨在开发能够根据环境变化自适应调整规划的智能体，提高其在动态环境中的表现。</p>
+                <p>通过将扩散模型与自适应学习机制相结合，AdaptDiffuser能够在执行任务过程中不断调整和优化其规划策略。这种自适应能力使智能体能够应对环境变化和不确定性，提高其在复杂和动态环境中的鲁棒性和性能。</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- Vendor Javascripts -->
-        <script src="assets/vendor/rellax/rellax.min.js"></script>
-        <script src="assets/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
-        <script src="assets/vendor/sticky-kit/dist/sticky-kit.min.js"></script>
-        <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-        <script src="assets/vendor/isotope-layout/dist/isotope.pkgd.min.js"></script>
-        <script src="assets/vendor/isotope-packery/packery-mode.pkgd.min.js"></script>
-        <script src="assets/vendor/aos/dist/aos.js"></script>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Scale Lab</h3>
+                    <p>空间认知与自动化学习实验室</p>
+                    <p>上海交通大学人工智能研究院</p>
+                    <p>上海市闵行区东川路800号</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>联系方式</h3>
+                    <p><i class="fas fa-envelope"></i> yaomarkmu@gmail.com</p>
+                    <p><i class="fab fa-weixin"></i> muyao20167（请备注来意）</p>
+                </div>
+                <div class="footer-links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="research.html">研究</a></li>
+                        <li><a href="people.html">团队</a></li>
+                        <li><a href="publications.html">发表论文</a></li>
+                        <li><a href="news.html">新闻动态</a></li>
+                        <li><a href="resources.html">资源</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Scale Lab. 版权所有。</p>
+            </div>
+        </div>
+    </footer>
 
-        <!-- Theme Javascripts -->
-        <script src="assets/js/theme.js"></script>
-    </body>
+    <script src="js/script.js"></script>
+</body>
 </html>

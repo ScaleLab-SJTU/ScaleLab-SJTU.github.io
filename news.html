@@ -1,374 +1,283 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-        <meta name="keywords" content="Chen Change Loy, Ziwei Liu, Bo Dai, Yixin Cao, Super-resolution, Deep Learning, Computer Vision, Convolutional Neural Network, Enhancement, Inpainting, Knowledge Distillation, Restoration, GAN, Generative Adversarial Networks, Generation, Manipulation, Editing, Object Detection, Segmentation, Recognition, Continual Learning, Domain Generalization, Self-Supervised Learning, Singapore, NTU, Nanyang Technological University, SCSE" />
-        
-        <!-- Page Title -->
-        <title>News | Wenhao Chai</title>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻动态 - Scale Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .news-section {
+            padding: 40px 0;
+        }
+        .news-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        .news-item .date {
+            background-color: #1a237e;
+            color: #fff;
+            padding: 10px 15px;
+            font-weight: 500;
+        }
+        .news-item .content {
+            padding: 20px;
+        }
+        .news-item h3 {
+            margin-bottom: 15px;
+        }
+        .news-item p {
+            margin-bottom: 15px;
+        }
+        .news-item .image {
+            margin: 15px 0;
+        }
+        .news-item .image img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+        .news-item .links {
+            margin-top: 15px;
+        }
+        .news-item .links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: #1a237e;
+        }
+        .news-item .links a i {
+            margin-right: 5px;
+        }
+        .events-section {
+            background-color: #f1f3f9;
+            padding: 40px 0;
+        }
+        .event-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .event-date {
+            flex: 0 0 80px;
+            height: 80px;
+            background-color: #1a237e;
+            color: #fff;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .event-date .month {
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        .event-date .day {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .event-info {
+            flex: 1;
+        }
+        .event-info h3 {
+            margin-bottom: 10px;
+        }
+        .event-info .location {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .event-info .location i {
+            margin-right: 5px;
+            color: #1a237e;
+        }
+        @media (max-width: 768px) {
+            .event-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .event-date {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Scale Lab</h1>
+                <p>Spatial Cognition and Automative Learning Laboratory</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="research.html">研究</a></li>
+                    <li><a href="people.html">团队</a></li>
+                    <li><a href="publications.html">发表论文</a></li>
+                    <li><a href="news.html" class="active">新闻动态</a></li>
+                    <li><a href="resources.html">资源</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-        <!-- Favicons -->
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
-        <link rel="manifest" href="assets/img/favicons/site.webmanifest">
-        <link rel="mask-icon" href="assets/img/favicons/safari-pinned-tab.svg" color="#f23838">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
+    <section class="page-header">
+        <div class="container">
+            <h1>新闻动态</h1>
+        </div>
+    </section>
 
-        <!-- Vendor Stylesheets -->
-        <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700%7CRoboto:300,400,700" rel="stylesheet">
-        <link href="assets/vendor/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
-        <link href="assets/vendor/jquery.mb.vimeo_player/dist/css/jquery.mb.vimeo_player.min.css" rel="stylesheet">
-        <link href="assets/vendor/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
-
-        <!-- Theme Stylesheets -->
-        <link href="assets/css/theme.css" rel="stylesheet">
-
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22940424-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-22940424-1');
-        </script>
-    </head>
-
-    <body>
-        <!-- Preloader -->
-        <div class="preloader">
-            <div class="spinner">
-                <div class="circles"></div>
+    <section class="news-section">
+        <div class="container">
+            <h2>最新消息</h2>
+            
+            <div class="news-item">
+                <div class="date">2024年3月</div>
+                <div class="content">
+                    <h3>论文被CVPR 2024接收</h3>
+                    <p>我们的论文"SkillDiffuser: Interpretable hierarchical planning via skill abstractions in diffusion-based task execution"被CVPR 2024接收！</p>
+                    <p>该论文提出了一种基于扩散模型的分层规划框架，通过技能抽象实现可解释的任务执行。通过学习技能抽象，SkillDiffuser能够在不同层次上理解和执行任务，从高层目标到低层动作，提高规划效率和可解释性。</p>
+                    <div class="links">
+                        <a href="#"><i class="fas fa-file-pdf"></i> 论文PDF</a>
+                        <a href="#"><i class="fas fa-code"></i> 代码</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> 项目页面</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="date">2024年1月</div>
+                <div class="content">
+                    <h3>三篇论文被ICLR 2024接收</h3>
+                    <p>我们很高兴地宣布，我们的三篇论文[SPET, Tree-Planner, Aligndiff]被ICLR 2024接收！</p>
+                    <p>这些论文涵盖了空间时序树规划、基于大型语言模型的任务规划以及基于扩散模型的行为定制等多个方向，展示了我们实验室在人工智能和机器人领域的最新研究成果。</p>
+                    <div class="links">
+                        <a href="#"><i class="fas fa-file-pdf"></i> SPET论文</a>
+                        <a href="#"><i class="fas fa-file-pdf"></i> Tree-Planner论文</a>
+                        <a href="#"><i class="fas fa-file-pdf"></i> Aligndiff论文</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="date">2023年9月</div>
+                <div class="content">
+                    <h3>论文被NeurIPS 2023接收并被选为Spotlight论文</h3>
+                    <p>我们的论文"EmbodiedGPT: Vision-Language Pre-Training via Embodied Chain of Thought"被NeurIPS 2023接收并被选为Spotlight论文！</p>
+                    <p>EmbodiedGPT是一个通过具身链式思考进行视觉语言预训练的框架，旨在开发能够理解视觉信息并通过语言进行推理的智能体，使其能够在物理环境中完成复杂任务。</p>
+                    <div class="links">
+                        <a href="#"><i class="fas fa-file-pdf"></i> 论文PDF</a>
+                        <a href="#"><i class="fas fa-code"></i> 代码</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> 项目页面</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="date">2023年5月</div>
+                <div class="content">
+                    <h3>两篇论文被ICML 2023接收</h3>
+                    <p>我们的论文"AdaptDiffuser: Diffusion Models as Adaptive Self-evolving Planners"被ICML 2023接收并被选为Oral Presentation！</p>
+                    <p>同时，我们的另一篇论文"MetaDiffuser: Diffusion Model as Conditional Planner for Offline Meta-RL"也被ICML 2023接收！</p>
+                    <p>这两篇论文都探索了扩散模型在规划和强化学习中的应用，展示了我们实验室在生成式机器人代理方向的研究成果。</p>
+                    <div class="links">
+                        <a href="#"><i class="fas fa-file-pdf"></i> AdaptDiffuser论文</a>
+                        <a href="#"><i class="fas fa-file-pdf"></i> MetaDiffuser论文</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="date">2023年3月</div>
+                <div class="content">
+                    <h3>论文被CVPR 2023接收</h3>
+                    <p>我们的论文"EC^2: Emergent Communication for Embodied Control"被CVPR 2023接收！</p>
+                    <p>该论文探索了如何通过涌现通信来实现具身控制，为多智能体协作提供了新的思路。</p>
+                    <div class="links">
+                        <a href="#"><i class="fas fa-file-pdf"></i> 论文PDF</a>
+                        <a href="#"><i class="fas fa-code"></i> 代码</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- End of Preloader -->
+    </section>
 
-        <!-- Header -->
-        <header class="spyre-navbar navbar navbar-expand-lg bg-dark navbar-dark fixed-top align-items-center" data-transparent data-text-color="#ffffff">
-            <div class="container">
-                <a class="navbar-brand mr-lg-5 mr-xl-7" href="index.html">
-                    <img src="assets/img/logo.png" class="d-none d-lg-block" alt="MMLab" width="183" />
-                    <img src="assets/img/logo.png" class="d-block d-lg-none" alt="MMLab" width="150" />
-                </a>
+    <section class="events-section">
+        <div class="container">
+            <h2>即将举行的活动</h2>
+            
+            <div class="event-item">
+                <div class="event-date">
+                    <div class="month">六月</div>
+                    <div class="day">18</div>
+                </div>
+                <div class="event-info">
+                    <h3>CVPR 2024会议展示</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> 美国西雅图</p>
+                    <p>我们将在CVPR 2024会议上展示我们的论文"SkillDiffuser: Interpretable hierarchical planning via skill abstractions in diffusion-based task execution"。欢迎参会者前来交流！</p>
+                </div>
+            </div>
+            
+            <div class="event-item">
+                <div class="event-date">
+                    <div class="month">五月</div>
+                    <div class="day">10</div>
+                </div>
+                <div class="event-info">
+                    <h3>ICLR 2024会议展示</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> 奥地利维也纳</p>
+                    <p>我们将在ICLR 2024会议上展示我们的三篇论文[SPET, Tree-Planner, Aligndiff]。欢迎参会者前来交流！</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <!-— Desktop Menu -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="pl-2 nav-item navbar-text"><a href="index.html" class="nav-link text-400">Home</a></li>
-                        <!-- <li class="pl-5 nav-item navbar-text"><a href="team.html" class="nav-link text-400">Team</a></li> -->
-                        <li class="pl-5 nav-item navbar-text"><a href="research.html" class="nav-link text-400">Research</a></li>
-                        <li class="pl-5 nav-item navbar-text"><a href="publication_year.html" class="nav-link text-400">Publications</a></li>    <li class="pl-5 nav-item navbar-text"><a href="downloads.html" class="nav-link text-400">Code | Datasets</a></li>
-                        <!-- <li class="pl-5 nav-item navbar-text"><a href="careers.html" class="nav-link text-400">Join Us</a></li> -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Scale Lab</h3>
+                    <p>空间认知与自动化学习实验室</p>
+                    <p>上海交通大学人工智能研究院</p>
+                    <p>上海市闵行区东川路800号</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>联系方式</h3>
+                    <p><i class="fas fa-envelope"></i> yaomarkmu@gmail.com</p>
+                    <p><i class="fab fa-weixin"></i> muyao20167（请备注来意）</p>
+                </div>
+                <div class="footer-links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="research.html">研究</a></li>
+                        <li><a href="people.html">团队</a></li>
+                        <li><a href="publications.html">发表论文</a></li>
+                        <li><a href="news.html">新闻动态</a></li>
+                        <li><a href="resources.html">资源</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
                     </ul>
                 </div>
-                <!-— End of Desktop Menu -->
-
-                <div class="menu-toggle d-block d-lg-none">
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="cross">
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
             </div>
-
-            <!-- Spyrenav Overlay -->
-            <div class="spyre-navbar-overlay overlay-slide">
-                <div class="container">
-                    <div class="row">
-                        <div class="spyre-navbar-nav-container col-md-6 col-lg-5 col-xl-4 bg-white ext-l">
-                            <nav class="spyre-navbar-nav">
-                                <ul class="spyre-nav">
-                                    <li class="spyre-nav-item"><a href="index.html" class="spyre-nav-link">Home</a></li>
-                                    <li class="spyre-nav-item"><a href="research.html" class="spyre-nav-link">Our Research</a></li>
-                                    <!-- <li class="spyre-nav-item"><a href="team.html" class="spyre-nav-link">Team</a></li> -->
-                                    <li class="spyre-nav-item dropdown">
-                                        <a href="news.html#" class="spyre-nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Publications</a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li class="dropdown-menu-item"><a href="publication_topic.html" class="dropdown-menu-link">By Topic</a></li>
-                                            <li class="dropdown-menu-item"><a href="publication_year.html" class="dropdown-menu-link">By Year</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="spyre-nav-item"><a href="downloads.html" class="spyre-nav-link">Code and Datasets</a></li>
-                                    <!-- <li class="spyre-nav-item"><a href="careers.html" class="spyre-nav-link">Join Us</a></li> -->
-                                </ul>
-                            </nav>
-                        </div>
-        
-                        <div class="col-lg-7 col-xl-8 d-none d-md-block">
-                            <div class="d-flex flex-column h-100">
-                                <div class="d-flex h-100">
-                                    <div class="align-self-center">
-                                        <div class="text-uppercase"
-                                            data-background-text="computer vision"
-                                            data-color="#7079a2"
-                                            data-opacity="0.02"
-                                            data-font-size="85px"
-                                            data-font-weight="500"
-                                            data-offset-x="-5%"
-                                            data-letter-spacing="5px"
-                                        ></div>
-                                        <div class="text-uppercase"
-                                            data-background-text="mmlab"
-                                            data-color="#7079a2"
-                                            data-opacity="0.04"
-                                            data-font-size="175px"
-                                            data-font-weight="500"
-                                            data-offset-x="29%"
-                                            data-padding="7vh 0 2vh 0"
-                                            data-letter-spacing="5px"
-                                        ></div>
-                                        <div class="text-uppercase"
-                                            data-background-text="deep learning"
-                                            data-color="#7079a2"
-                                            data-opacity="0.03"
-                                            data-font-size="140px"
-                                            data-font-weight="500"
-                                            data-offset-x="15%"
-                                            data-letter-spacing="5px"
-                                        ></div>
-                                    </div>
-                                </div>
-                                
-                                <div class="mt-auto">
-                                    <ul class="nav flex-nowrap float-right">
-                                        <li class="nav-item">
-                                            <a class="nav-link px-2" href="https://twitter.com/re5e1f" target="_blank">
-                                                <i class="zmdi zmdi-twitter text-white"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="copyright">
+                <p>&copy; 2025 Scale Lab. 版权所有。</p>
             </div>
-            <!-- End of Spyrenav Overlay -->
-        </header>
-        <!-- End of Header -->
+        </div>
+    </footer>
 
-        <!-- Main Content -->
-        <main class="main minh-100vh">
-            <!-- Section -->
-            <section class="py-0 overflow-hidden text-center">
-                <div class="bg-container overlay overlay-dark-60 parallax" data-rellax-percentage="0.5" style="background-image: url(assets/img/backgrounds/bg-02.jpg)">
-                    <div class="bg-video vimeo" data-property="{videoURL:'https://vimeo.com/159035843', stopAt:45, autoPlay:true, mute:true, showControls: false, containment: 'self', loop: false}"></div>
-                </div>
-                <!-- <div class="container">
-                    <div class="row h-100vh align-items-center">
-                        <div class="col">
-                            <h1 class="text-white text-uppercase fs-4 fs-lg-6">Publications</h1>
-                            <div class="row justify-content-center">
-                                <div class="col-auto">
-                                    <a href="#section-1" class="btn btn-primary mx-2 px-5 mb-3" data-aos="fade-down" data-aos-delay="100" data-aos-duration="1000" data-smooth-scroll data-smooth-scroll-hash="false">By Year</a>
-                                </div>
-                                <div class="col-auto">
-                                    <a href="./publication_topic.html" class="btn btn-light px-5 mx-2" data-aos="fade-down" data-aos-delay="100" data-aos-duration="1000">By Topic<i class="zmdi zmdi-long-arrow-right ml-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="move d-none d-lg-block">
-                    <a href="#section-1" class="text-white" data-smooth-scroll data-smooth-scroll-hash="false">
-                        <i class="zmdi zmdi-long-arrow-down zmdi-hc-2x"></i>
-                    </a>
-                </div> -->
-                <span id="2024"></span> <!-- update here -->
-            </section>
-            <!-- End of Section -->
-
-            <!-- Section -->
-            <section id="section-1" class="pb-0">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 order-lg-1">
-                            <div class="pb-6 pt-6 py-lg-3" data-toggle="sticky" data-sticky-offset-top="100">
-                                <h5 class="mb-4 text-uppercase text-600">Years</h5>
-                                <ul class="mb-5 mb-lg-6 pl-4 text-600">
-                                    <li class="mb-1"><a href="news.html#2023" class="text-600">2024</a></li>
-                                    <li class="mb-1"><a href="news.html#2023" class="text-600">2023</a></li>
-                                    <li class="mb-1"><a href="news.html#2022" class="text-600">2022</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-8 order-lg-2 pb-6 pb-lg-0 pt-lg-3">
-                            <div class="mb-8">
-                                <h2 class="mb-4 text-uppercase">2024</h2>
-                                <ul class="zmdi-hc-ul">
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>07/2024: Two papers accepted to ECCV 2024.</li>
-
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>06/2024: One technique report accepted to CVPR 2024 workshop @ <a href="https://cvlai.net/ntire/2024/">NTIRE</a>.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>06/2024: We are working with <a href="https://pika.art/" target="_blank">Pika Lab</a> to develop next-generation video understanding and generation models.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>05/2024: One paper accepted to CVPR 2024 workshop @ <a href="https://embodied-ai.org/">Embodied AI</a>.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>04/2024: We are hosting CVPR 2024 Long-form Video Understanding Challenge @ <a href="https://sites.google.com/view/loveucvpr24/home">LOVEU</a>.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>04/2024: Invited talk at <a href="https://mp.weixin.qq.com/s/X2ug-dphJq96iUmmQvYK7Q">AgentX seminar</a> about our <a href="https://rese1f.github.io/STEVE/">STEVE</a> series works. </li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>03/2024: One paper accepted to ICLR 2024 workshop @ <a href="https://llmagents.github.io/">LLM Agents</a>.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>02/2024: Two papers accepted to CVPR 2024 (1 highlight).</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>02/2024: Invited talk at AAAI 2024 workshop @ <a href="https://sites.google.com/vt.edu/imageomics-aaai-24/">IMAGEOMICS</a>.</li>
-    
-                                </ul>
-                                <span id="2023"></span>
-                            </div>
-                            <div class="mb-8">
-                                <h2 class="mb-4 text-uppercase">2023</h2>
-                                <ul class="zmdi-hc-ul">
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>12/2023: One paper accepted to ICASSP 2024.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>12/2023: One paper accepted to AAAI 2024.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>11/2023: Two paper accepted to WACV 2024 and its workshop <a href="https://cv4smalls.sites.northeastern.edu/">CV4Smalls</a>.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>09/2023: One paper accepted to ICCV 2023 workshop <a href="https://www.datacomp.ai/">TNGCV-DataComp</a>.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>09/2023: One paper accepted to IEEE T-MM.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>08/2023: One paper accepted to BMVC 2023.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>07/2023: Two paper accepted to ACM MM 2023.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>07/2023: Finish my research internship at Microsoft Research Asia (MSRA), Beijing.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>07/2023: Two paper accepted to ICCV 2023.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>06/2023: Graduation from Zhejiang University with Bachelor's degree.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>04/2023: One paper accepted to CVPR 2023 workshop <a href="http://conferences.visionbib.com/2023/cvpr-cvfad-6-23-call.html">Computer Vision for Fashion, Art, and Design</a>.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>03/2023: One paper accepted to IEEE T-AI.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>03/2023: Become a graduate student member of Information Processing Lab at University of Washington, advised by Professor <a href="https://scholar.google.com/citations?user=4OAHy-kAAAAJ">Jenq-Neng Hwang</a>.</li>
-    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>02/2023: Become a research intern at Microsoft Research Asia (MSRA), advised by principal researcher <a href="https://scholar.google.com/citations?user=Ow4R8-EAAAAJ">Xun Guo</a>.</li>
-                                    
-                                </ul>
-                                <span id="2022"></span>
-                            </div>
-
-                            <div class="mb-8">
-                                <h2 class="mb-4 text-uppercase">2022</h2>
-                                <ul class="zmdi-hc-ul">
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>09/2022: One paper accepted to ICTAI 2022.</li>
-
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>07/2022: Become a member of National Center for Supercomputing Applications (NCSA) at University of Illinois Urbana-Champaign, work with Professor <a href="https://scholar.google.com/citations?user=Cy81VegAAAAJ">Volodymyr (Vlad) Kindratenko</a>.</li>
-                                    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>06/2022: One paper accepted to Applied Science.</li>
-                                    
-                                    <li><i class="zmdi-hc-li zmdi zmdi-calendar"></i>01/2022: Start doing research with Professor <a href="https://scholar.google.com/citations?user=GhsXNiwAAAAJ"> Gaoang Wang</a>.</li>
-                                </ul>
-                            </div>
-
-                               
-                        </div>                        
-                    </div>
-                </div>
-            </section>
-            <!-- End of Section -->
-        </main>
-        <!-- End of Main Content -->
-
-
-        <!-- Footer -->
-        <footer class="footer_p text-white" style="background-image: url(assets/img/logo-small.png)">
-            <div class="container d-flex h-100">
-                <div class="row flex-grow-1">
-                    <div class="col-lg-3 pt-3 ext-l bg-dark text-center text-lg-left">
-                        <div class="d-flex flex-column h-100">
-                            <div class="pt-5 pt-lg-8 pb-4">
-                                <img src="assets/img/logo-small.png" alt="" width="108" class="mb-4" />
-                                <p class="mb-4 mt-3 fs--1"><br />
-                                Wenhao Chai <br />
-                                University of Washington<br />
-                                Seattle, WA 98195</p>
-        
-                                <p class="fs--1">
-                                <span class="text-white"><i class="zmdi zmdi-email zmdi-hc-fw mr-1"></i>wchai at uw.edu</span><br />
-                                <span class="text-white"><i class="zmdi zmdi-twitter zmdi-hc-fw mr-1"></i><a href="https://twitter.com/re5e1f" target="_blank" class="text-white">@re5e1f</a></span></p>
-                            </div>
-    
-                            <!-- <ul class="mt-4 mt-lg-auto mb-5 mb-lg-0 list-unstyled list-inline">
-                                <li class="mr-3 list-inline-item">
-                                    <a href="https://twitter.com/re5e1f" target="_blank">
-                                        <i class="zmdi zmdi-twitter text-white"></i>
-                                    </a>
-                                </li>
-                            </ul> -->
-                        </div>
-                    </div>
-
-                    <div class="col d-flex flex-column mb-2 mt-3 pl-lg-7">
-                        <div class="row pt-5 pt-lg-8 pb-4 pb-lg-6">
-                            <div class="col-6 col-lg-3">
-                                <h6 class="mb-1 mb-lg-4 text-uppercase">Publications</h6>
-                                <ul class="pt-2 mb-5 fw-light list-unstyled">
-                                    <li class="my-1"><a href="publication_topic.html" class="text-white">By Topic</a></li>
-                                    <li class="my-1"><a href="publication_year.html" class="text-white">By Year</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <h6 class="mb-1 mb-lg-4 text-uppercase">About</h6>
-                                <ul class="pt-2 mb-5 fw-light list-unstyled">
-                                    <li class="my-1"><a href="research.html" class="text-white">Our Research</a></li>
-                                    <!-- <li class="my-1"><a href="team.html" class="text-white">Team</a></li>
-                                    <li class="my-1"><a href="careers.html" class="text-white">Join Us</a></li> -->
-                                </ul>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <h6 class="mb-1 mb-lg-4 text-uppercase">Open Source</h6>
-                                <ul class="pt-2 mb-5 fw-light list-unstyled">
-                                    <li class="my-1"><a href="downloads.html" class="text-white">Code and Datasets</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="mt-auto d-flex justify-content-between">
-                            <span class="fs--3 fs-lg--2">&copy; Wenhao Chai, 2024</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
-
-        <!-- Top Button -->
-        <a id="back-to-top" href="news.html#" class="btn btn-light btn-lg back-to-top" role="button"><i class="fas fa-chevron-up"></i></a>
-        <!-- End of Top Button -->
-
-
-        <!-- Core Javascripts -->
-        <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-        <script src="assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-        <script src="assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="assets/vendor/typed.js/lib/typed.min.js"></script>
-
-        <!-- Vendor Javascripts -->
-        <script src="assets/vendor/rellax/rellax.min.js"></script>
-        <script src="assets/vendor/sticky-kit/dist/sticky-kit.min.js"></script>
-        <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-        <script src="assets/vendor/isotope-layout/dist/isotope.pkgd.min.js"></script>
-        <script src="assets/vendor/isotope-packery/packery-mode.pkgd.min.js"></script>
-        <script src="assets/vendor/aos/dist/aos.js"></script>
-
-        <!-- Theme Javascripts -->
-        <script src="assets/js/theme.js"></script>
-        <script src="assets/js/top.js"></script>
-    </body>
+    <script src="js/script.js"></script>
+</body>
 </html>

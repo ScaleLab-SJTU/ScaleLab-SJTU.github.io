@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资源 - Scale Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .resources-section {
+            padding: 40px 0;
+        }
+        .resource-category {
+            margin-bottom: 50px;
+        }
+        .resource-category h2 {
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1a237e;
+        }
+        .resource-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .resource-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+        .resource-item:hover {
+            transform: translateY(-5px);
+        }
+        .resource-item i {
+            font-size: 40px;
+            color: #1a237e;
+            margin-bottom: 20px;
+        }
+        .resource-item h3 {
+            margin-bottom: 15px;
+        }
+        .resource-item p {
+            margin-bottom: 15px;
+        }
+        .resource-item .links {
+            margin-top: 15px;
+        }
+        .resource-item .links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: #1a237e;
+        }
+        .resource-item .links a i {
+            font-size: 16px;
+            margin-right: 5px;
+        }
+        .resource-list {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+        }
+        .resource-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .resource-list ul li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .resource-list ul li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .resource-list ul li a {
+            display: flex;
+            align-items: center;
+            color: #1a237e;
+        }
+        .resource-list ul li a i {
+            font-size: 20px;
+            margin-right: 10px;
+            color: #1a237e;
+        }
+        .resource-list ul li a:hover {
+            color: #3949ab;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Scale Lab</h1>
+                <p>Spatial Cognition and Automative Learning Laboratory</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="research.html">研究</a></li>
+                    <li><a href="people.html">团队</a></li>
+                    <li><a href="publications.html">发表论文</a></li>
+                    <li><a href="news.html">新闻动态</a></li>
+                    <li><a href="resources.html" class="active">资源</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>资源</h1>
+        </div>
+    </section>
+
+    <section class="resources-section">
+        <div class="container">
+            <div class="resource-category">
+                <h2>数据集和代码</h2>
+                <div class="resource-items">
+                    <div class="resource-item">
+                        <i class="fas fa-code"></i>
+                        <h3>EmbodiedGPT</h3>
+                        <p>通过具身链式思考进行视觉语言预训练的框架，旨在开发能够理解视觉信息并通过语言进行推理的智能体。</p>
+                        <div class="links">
+                            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#"><i class="fas fa-external-link-alt"></i> 项目页面</a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <i class="fas fa-code"></i>
+                        <h3>SkillDiffuser</h3>
+                        <p>基于扩散模型的分层规划框架，通过技能抽象实现可解释的任务执行。</p>
+                        <div class="links">
+                            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#"><i class="fas fa-external-link-alt"></i> 项目页面</a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <i class="fas fa-code"></i>
+                        <h3>AdaptDiffuser</h3>
+                        <p>将扩散模型作为自适应自进化规划器的框架，能够根据环境变化自适应调整规划。</p>
+                        <div class="links">
+                            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#"><i class="fas fa-external-link-alt"></i> 项目页面</a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <i class="fas fa-code"></i>
+                        <h3>MetaDiffuser</h3>
+                        <p>将扩散模型作为条件规划器用于离线元强化学习的框架。</p>
+                        <div class="links">
+                            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#"><i class="fas fa-external-link-alt"></i> 项目页面</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="resource-category">
+                <h2>教学资源</h2>
+                <div class="resource-list">
+                    <p>我们的教学资源将在实验室成立后陆续更新，包括课程材料、教学视频、讲义和实验指导等。</p>
+                </div>
+            </div>
+            
+            <div class="resource-category">
+                <h2>软件工具</h2>
+                <div class="resource-list">
+                    <ul>
+                        <li><a href="#"><i class="fas fa-tools"></i> 空间认知评估工具包</a></li>
+                        <li><a href="#"><i class="fas fa-tools"></i> 强化学习环境集合</a></li>
+                        <li><a href="#"><i class="fas fa-tools"></i> 扩散模型规划框架</a></li>
+                        <li><a href="#"><i class="fas fa-tools"></i> 具身AI仿真平台</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="resource-category">
+                <h2>相关链接</h2>
+                <div class="resource-list">
+                    <ul>
+                        <li><a href="https://yaomarkmu.github.io/" target="_blank"><i class="fas fa-external-link-alt"></i> 姚（Mark）牧教授个人主页</a></li>
+                        <li><a href="https://www.sjtu.edu.cn/" target="_blank"><i class="fas fa-external-link-alt"></i> 上海交通大学</a></li>
+                        <li><a href="#"><i class="fas fa-external-link-alt"></i> 上海交通大学人工智能研究院</a></li>
+                        <li><a href="#"><i class="fas fa-external-link-alt"></i> DeepTimber Robotics Innovations Community</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Scale Lab</h3>
+                    <p>空间认知与自动化学习实验室</p>
+                    <p>上海交通大学人工智能研究院</p>
+                    <p>上海市闵行区东川路800号</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>联系方式</h3>
+                    <p><i class="fas fa-envelope"></i> yaomarkmu@gmail.com</p>
+                    <p><i class="fab fa-weixin"></i> muyao20167（请备注来意）</p>
+                </div>
+                <div class="footer-links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="research.html">研究</a></li>
+                        <li><a href="people.html">团队</a></li>
+                        <li><a href="publications.html">发表论文</a></li>
+                        <li><a href="news.html">新闻动态</a></li>
+                        <li><a href="resources.html">资源</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Scale Lab. 版权所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
