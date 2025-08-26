@@ -3,265 +3,1129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>发表论文 - Scale Lab</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Yao (Mark) Mu - Publications</title>
     <style>
-        .publications-section {
-            padding: 40px 0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .year-section {
-            margin-bottom: 50px;
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
         }
-        .year-section h2 {
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #1a237e;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .publication-item {
-            background-color: #fff;
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 2rem 0;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .stat-icon {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Filters */
+        .filters {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .filters-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            fill: #94a3b8;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+            border: 1px solid #d1d5db;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            padding: 25px;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
+            font-size: 0.9rem;
+            transition: all 0.2s;
         }
-        .publication-item:hover {
-            transform: translateY(-5px);
+
+        .search-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
-        .publication-item h3 {
-            margin-bottom: 10px;
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .publication-item .venue {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 15px;
+
+        .filter-icon {
+            width: 16px;
+            height: 16px;
+            fill: #94a3b8;
         }
-        .publication-item .authors {
-            margin-bottom: 15px;
+
+        .filter-select {
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        .publication-item .links {
-            margin-top: 15px;
+
+        .filter-select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
-        .publication-item .links a {
-            display: inline-block;
-            margin-right: 15px;
-            color: #1a237e;
+
+        /* Publications */
+        .publications {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
-        .publication-item .links a i {
-            margin-right: 5px;
+
+        .publication {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            transition: all 0.2s;
         }
-        .publication-item .badge {
-            display: inline-block;
-            padding: 3px 10px;
-            background-color: #1a237e;
-            color: #fff;
-            border-radius: 4px;
-            font-size: 12px;
-            margin-left: 10px;
+
+        .publication:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .publication-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .publication-main {
+            flex: 1;
+        }
+
+        .publication-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .publication-authors {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .authors-icon {
+            width: 16px;
+            height: 16px;
+            fill: #94a3b8;
+        }
+
+        .publication-venue {
+            margin-bottom: 0.75rem;
+        }
+
+        .venue-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .venue-conference {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .venue-journal {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .venue-preprint {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .venue-patent {
+            background: #f3e8ff;
+            color: #7c3aed;
+        }
+
+        .venue-workshop {
+            background: #fce7f3;
+            color: #be185d;
+        }
+
+        .venue-other {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .publication-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+        }
+
+        .meta-icon {
+            width: 16px;
+            height: 16px;
+            fill: #94a3b8;
+        }
+
+        .year {
+            font-weight: 600;
+        }
+
+        /* No results */
+        .no-results {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .no-results-icon {
+            width: 48px;
+            height: 48px;
+            fill: #94a3b8;
+            margin: 0 auto 1rem;
+        }
+
+        .no-results h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .no-results p {
+            color: #64748b;
+        }
+
+        /* Results count */
+        .results-count {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        /* Footer */
+        .footer {
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            text-align: center;
+            color: #64748b;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer .small {
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .stats {
+                gap: 1rem;
+            }
+
+            .filters-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                min-width: auto;
+            }
+
+            .publication-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .publication-meta {
+                align-items: flex-start;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
+    <!-- Header -->
+    <header class="header">
         <div class="container">
-            <div class="logo">
-                <h1>Scale Lab</h1>
-                <p>Spatial Cognition and Automative Learning Laboratory</p>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="research.html">研究</a></li>
-                    <li><a href="people.html">团队</a></li>
-                    <li><a href="publications.html" class="active">发表论文</a></li>
-                    <li><a href="news.html">新闻动态</a></li>
-                    <li><a href="resources.html">资源</a></li>
-                    <li><a href="contact.html">联系我们</a></li>
-                </ul>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <section class="page-header">
-        <div class="container">
-            <h1>发表论文</h1>
-        </div>
-    </section>
-
-    <section class="publications-section">
-        <div class="container">
-            <div class="year-section">
-                <h2>2024</h2>
-                <div class="publication-item">
-                    <h3>SkillDiffuser: Interpretable hierarchical planning via skill abstractions in diffusion-based task execution</h3>
-                    <p class="venue">IEEE/CVF Computer Vision and Pattern Recognition Conference (CVPR 2024)</p>
-                    <div class="links">
-                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <a href="#"><i class="fas fa-code"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Project Page</a>
+            <div class="header-content">
+                <h1>Yao (Mark) Mu</h1>
+                <p class="subtitle">Shanghai Jiao Tong University • Embodied AI • Reinforcement Learning • Robotics</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <svg class="stat-icon" viewBox="0 0 24 24">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 1 4 4.5v15z"/>
+                            <path d="M6 2h14v15H6z"/>
+                            <circle cx="12" cy="9" r="1"/>
+                            <path d="m7 14 3-3 2 2 3-3 2 2"/>
+                        </svg>
+                        <span id="total-papers">75 Publications</span>
                     </div>
-                </div>
-
-                <div class="publication-item">
-                    <h3>SPET: Spatial-Temporal Tree Planning via Diffusion Models</h3>
-                    <p class="venue">International Conference on Learning Representations (ICLR 2024)</p>
-                    <div class="links">
-                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <a href="#"><i class="fas fa-code"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Project Page</a>
+                    <div class="stat-item">
+                        <svg class="stat-icon" viewBox="0 0 24 24">
+                            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                        </svg>
+                        <span id="total-citations">1908 Citations</span>
                     </div>
-                </div>
-
-                <div class="publication-item">
-                    <h3>Tree-Planner: Efficient Close-loop Task Planning with Large Language Models</h3>
-                    <p class="venue">International Conference on Learning Representations (ICLR 2024)</p>
-                    <div class="links">
-                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <a href="#"><i class="fas fa-code"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Project Page</a>
-                    </div>
-                </div>
-
-                <div class="publication-item">
-                    <h3>AlignDiff: Aligning Diverse Human Preferences via Behavior-Customisable Diffusion Models</h3>
-                    <p class="venue">International Conference on Learning Representations (ICLR 2024)</p>
-                    <div class="links">
-                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <a href="#"><i class="fas fa-code"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Project Page</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="year-section">
-                <h2>2023</h2>
-                <div class="publication-item">
-                    <h3>EmbodiedGPT: Vision-Language Pre-Training via Embodied Chain of Thought</h3>
-                    <p class="venue">Thirty-seventh Conference on Neural Information Processing Systems (NeurIPS 2023)</p>
-                    <span class="badge">Spotlight</span>
-                    <div class="links">
-                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <a href="#"><i class="fas fa-code"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Project Page</a>
-                    </div>
-                </div>
-
-                <div class="publication-item">
-                    <h3>AdaptDiffuser: Diffusion Models as Adaptive Self-evolving Planners</h3>
-                    <p class="venue">The Fortieth International Conference on Machine Learning (ICML 2023)</p>
-                    <span class="badge">Oral Presentation</span>
-                    <div class="links">
-                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <a href="#"><i class="fas fa-code"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Project Page</a>
-                    </div>
-                </div>
-
-                <div class="publication-item">
-                    <h3>MetaDiffuser: Diffusion Model as Conditional Planner for Offline Meta-RL</h3>
-                    <p class="venue">The Fortieth International Conference on Machine Learning (ICML 2023)</p>
-                    <div class="links">
-                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <a href="#"><i class="fas fa-code"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Project Page</a>
-                    </div>
-                </div>
-
-                <div class="publication-item">
-                    <h3>EC^2: Emergent Communication for Embodied Control</h3>
-                    <p class="venue">IEEE/CVF Computer Vision and Pattern Recognition Conference (CVPR 2023)</p>
-                    <div class="links">
-                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <a href="#"><i class="fas fa-code"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Project Page</a>
-                    </div>
-                </div>
-
-                <div class="publication-item">
-                    <h3>CO^3: Cooperative Unsupervised 3D Representation Learning for Autonomous Driving</h3>
-                    <p class="venue">Eleventh International Conference on Learning Representations (ICLR 2023)</p>
-                    <div class="links">
-                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <a href="#"><i class="fas fa-code"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Project Page</a>
-                    </div>
-                </div>
-
-                <div class="publication-item">
-                    <h3>EUCLID: Towards Efficient Unsupervised Reinforcement Learning with Multi-choice Dynamics Model</h3>
-                    <p class="venue">Eleventh International Conference on Learning Representations (ICLR 2023)</p>
-                    <div class="links">
-                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <a href="#"><i class="fas fa-code"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Project Page</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="year-section">
-                <h2>2022</h2>
-                <div class="publication-item">
-                    <h3>DOMINO: Decomposed Mutual Information Optimization for Generalized Context in Meta-Reinforcement Learning</h3>
-                    <p class="venue">The 36th Conference on Neural Information Processing Systems (NeurIPS 2022)</p>
-                    <span class="badge">Spotlight</span>
-                    <div class="links">
-                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <a href="#"><i class="fas fa-code"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Project Page</a>
-                    </div>
-                </div>
-
-                <div class="publication-item">
-                    <h3>CtrlFormer: Learning Transferable State Representation for Visual Control via Transformer</h3>
-                    <p class="venue">The 39th International Conference on Machine Learning (ICML 2022)</p>
-                    <div class="links">
-                        <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <a href="#"><i class="fas fa-code"></i> Code</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Project Page</a>
+                    <div class="stat-item">
+                        <svg class="stat-icon" viewBox="0 0 24 24">
+                            <path d="M8 2v4"/>
+                            <path d="M16 2v4"/>
+                            <rect width="18" height="18" x="3" y="4" rx="2"/>
+                            <path d="M3 10h18"/>
+                        </svg>
+                        <span id="year-range">2020-2025</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <footer>
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Filters -->
+        <div class="filters">
+            <div class="filters-row">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" id="search-input" class="search-input" placeholder="Search publications...">
+                </div>
+
+                <div class="filter-group">
+                    <svg class="filter-icon" viewBox="0 0 24 24">
+                        <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"/>
+                    </svg>
+                    <select id="year-filter" class="filter-select">
+                        <option value="all">All Years</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <span style="font-size: 0.9rem; color: #64748b;">Sort by:</span>
+                    <select id="sort-select" class="filter-select">
+                        <option value="year">Year</option>
+                        <option value="citations">Citations</option>
+                        <option value="title">Title</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Publications List -->
+        <div id="publications-list" class="publications">
+            <!-- Publications will be inserted here by JavaScript -->
+        </div>
+
+        <!-- No Results -->
+        <div id="no-results" class="no-results" style="display: none;">
+            <svg class="no-results-icon" viewBox="0 0 24 24">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 1 4 4.5v15z"/>
+                <path d="M6 2h14v15H6z"/>
+                <circle cx="12" cy="9" r="1"/>
+                <path d="m7 14 3-3 2 2 3-3 2 2"/>
+            </svg>
+            <h3>No publications found</h3>
+            <p>Try adjusting your search terms or filters.</p>
+        </div>
+
+        <!-- Results Count -->
+        <div id="results-count" class="results-count"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>Scale Lab</h3>
-                    <p>空间认知与自动化学习实验室</p>
-                    <p>上海交通大学人工智能研究院</p>
-                    <p>上海市闵行区东川路800号</p>
-                </div>
-                <div class="footer-contact">
-                    <h3>联系方式</h3>
-                    <p><i class="fas fa-envelope"></i> yaomarkmu@gmail.com</p>
-                    <p><i class="fab fa-weixin"></i> muyao20167（请备注来意）</p>
-                </div>
-                <div class="footer-links">
-                    <h3>快速链接</h3>
-                    <ul>
-                        <li><a href="index.html">首页</a></li>
-                        <li><a href="research.html">研究</a></li>
-                        <li><a href="people.html">团队</a></li>
-                        <li><a href="publications.html">发表论文</a></li>
-                        <li><a href="news.html">新闻动态</a></li>
-                        <li><a href="resources.html">资源</a></li>
-                        <li><a href="contact.html">联系我们</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Scale Lab. 版权所有。</p>
-            </div>
+            <p>© 2025 Yao (Mark) Mu. All rights reserved.</p>
+            <p class="small">Publications data extracted from Google Scholar</p>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Publications data
+        const publicationsData = [
+  {
+    "title": "HyCodePolicy: Hybrid Language Controllers for Multimodal Monitoring and",
+    "authors": "Y Liu, Z Liang, Z Chen, T Chen, M Hu, W Dong, C Xu, Z Han, Y Qin, Y Mu",
+    "venue": "arXiv preprint arXiv:2508.02629",
+    "year": 2025,
+    "citations": 0
+  },
+  {
+    "title": "FMimic: Foundation Models are Fine-grained Action Learners from Human",
+    "authors": "G Chen, M Wang, T Cui, Y Mu, H Lu, Z Peng, M Hu, T Zhou, M Fu, Y Yang, ...",
+    "venue": "arXiv preprint arXiv:2507.20622",
+    "year": 2025,
+    "citations": 0
+  },
+  {
+    "title": "ArtGS: 3D Gaussian Splatting for Interactive Visual-Physical Modeling and",
+    "authors": "Q Yu, X Yuan, J Chen, D Zheng, C Hao, Y You, Y Chen, Y Mu, L Liu, C Lu",
+    "venue": "arXiv preprint arXiv:2507.02600",
+    "year": 2025,
+    "citations": 0
+  },
+  {
+    "title": "Benchmarking generalizable bimanual manipulation: Robotwin dual-arm",
+    "authors": "T Chen, K Wang, Z Yang, Y Zhang, Z Chen, B Chen, W Dong, Z Liu, ...",
+    "venue": "arXiv preprint arXiv:2506.23351",
+    "year": 2025,
+    "citations": 1
+  },
+  {
+    "title": "collaboration challenge at cvpr",
+    "authors": "",
+    "venue": "",
+    "year": 2025,
+    "citations": 0
+  },
+  {
+    "title": "PA-TCP: Interpretable End-to-End Autonomous Driving Through Parallel",
+    "authors": "D Wang, Y Li, W Chen, X Jiang, Y Mu, D Li",
+    "venue": "2025 IEEE Intelligent Vehicles Symposium (IV), 1725-1731",
+    "year": 2025,
+    "citations": 0
+  },
+  {
+    "title": "RoboTwin 2.0: A Scalable Data Generator and Benchmark with Strong",
+    "authors": "T Chen, Z Chen, B Chen, Z Cai, Y Liu, Q Liang, Z Li, X Lin, Y Ge, Z Gu, ...",
+    "venue": "arXiv preprint arXiv:2506.18088",
+    "year": 2025,
+    "citations": 5
+  },
+  {
+    "title": "OWMM-Agent: Open World Mobile Manipulation With Multi-modal Agentic",
+    "authors": "J Chen, H Liang, L Du, W Wang, M Hu, Y Mu, W Wang, J Dai, P Luo, ...",
+    "venue": "arXiv preprint arXiv:2506.04217",
+    "year": 2025,
+    "citations": 0
+  },
+  {
+    "title": "Autobio: A simulation and benchmark for robotic automation in digital biology",
+    "authors": "Z Lan, Y Jiang, R Wang, X Xie, R Zhang, Y Zhu, P Li, T Yang, T Chen, ...",
+    "venue": "arXiv preprint arXiv:2505.14030",
+    "year": 2025,
+    "citations": 3
+  },
+  {
+    "title": "Dexterous manipulation through imitation learning: A survey",
+    "authors": "S An, Z Meng, C Tang, Y Zhou, T Liu, F Ding, S Zhang, Y Mu, R Song, ...",
+    "venue": "arXiv preprint arXiv:2504.03515",
+    "year": 2025,
+    "citations": 8
+  },
+  {
+    "title": "Adaptive Interactive Navigation of Quadruped Robots using Large Language",
+    "authors": "K Zhou, Y Mu, H Song, Y Zeng, P Wu, H Gao, C Liu",
+    "venue": "arXiv preprint arXiv:2503.22942",
+    "year": 2025,
+    "citations": 0
+  },
+  {
+    "title": "Post-interactive Multimodal Trajectory Prediction for Autonomous Driving",
+    "authors": "Z Huang, Y Li, D Li, Y Mu, H Qin, N Zheng",
+    "venue": "arXiv preprint arXiv:2503.09366",
+    "year": 2025,
+    "citations": 0
+  },
+  {
+    "title": "Agibot world colosseo: A large-scale manipulation platform for scalable and",
+    "authors": "Q Bu, J Cai, L Chen, X Cui, Y Ding, S Feng, S Gao, X He, X Hu, X Huang, ...",
+    "venue": "arXiv preprint arXiv:2503.06669",
+    "year": 2025,
+    "citations": 42
+  },
+  {
+    "title": "Text2world: Benchmarking large language models for symbolic world model",
+    "authors": "M Hu, T Chen, Y Zou, Y Lei, Q Chen, M Li, Y Mu, H Zhang, W Shao, P Luo",
+    "venue": "arXiv preprint arXiv:2502.13092",
+    "year": 2025,
+    "citations": 11
+  },
+  {
+    "title": "GraphMimic: Graph-to-Graphs Generative Modeling from Videos for Policy",
+    "authors": "G Chen, T Cui, M Wang, C Yang, M Hu, H Lu, Y Mu, Z Peng, T Zhou, ...",
+    "venue": "Proceedings of the Computer Vision and Pattern Recognition Conference, 1756-1768",
+    "year": 2025,
+    "citations": 2
+  },
+  {
+    "title": "Robobrain: A unified brain model for robotic manipulation from abstract to",
+    "authors": "Y Ji, H Tan, J Shi, X Hao, Y Zhang, H Zhang, P Wang, M Zhao, Y Mu, P An, ...",
+    "venue": "Proceedings of the Computer Vision and Pattern Recognition Conference, 1724-1734",
+    "year": 2025,
+    "citations": 27
+  },
+  {
+    "title": "Dexhanddiff: Interaction-aware diffusion planning for adaptive dexterous",
+    "authors": "Z Liang, Y Mu, Y Wang, T Chen, W Shao, W Zhan, M Tomizuka, P Luo, ...",
+    "venue": "Proceedings of the Computer Vision and Pattern Recognition Conference, 1745-1755",
+    "year": 2025,
+    "citations": 5
+  },
+  {
+    "title": "G3flow: Generative 3d semantic flow for pose-aware and generalizable",
+    "authors": "T Chen, Y Mu, Z Liang, Z Chen, S Peng, Q Chen, M Xu, R Hu, H Zhang, ...",
+    "venue": "Proceedings of the Computer Vision and Pattern Recognition Conference, 1735-1744",
+    "year": 2025,
+    "citations": 15
+  },
+  {
+    "title": "Safedrive: Knowledge-and data-driven risk-sensitive decision-making for",
+    "authors": "Z Zhou, H Huang, B Li, S Zhao, Y Mu, J Wang",
+    "venue": "arXiv preprint arXiv:2412.13238",
+    "year": 2024,
+    "citations": 6
+  },
+  {
+    "title": "Vlmimic: Vision language models are visual imitation learner for fine-grained",
+    "authors": "G Chen, M Wang, T Cui, Y Mu, H Lu, T Zhou, Z Peng, M Hu, H Li, L Yuan, ...",
+    "venue": "Advances in Neural Information Processing Systems 37, 77860-77887",
+    "year": 2024,
+    "citations": 8
+  },
+  {
+    "title": "M PC: Test-time Model Predictive Control for Pretrained Masked Trajectory",
+    "authors": "K Wen, Y Hu, Y Mu, L Ke",
+    "venue": "arXiv preprint arXiv:2412.05675",
+    "year": 2024,
+    "citations": 0
+  },
+  {
+    "title": "DexHandDiff: Interaction-aware Diffusion Planning for Adaptive Dexterous",
+    "authors": "Z Liang, Y Mu, Y Wang, T Chen, W Shao, W Zhan, M Tomizuka, P Luo, ...",
+    "venue": "arXiv preprint arXiv:2411.18562",
+    "year": 2024,
+    "citations": 4
+  },
+  {
+    "title": "Autoregressive models in vision: A survey",
+    "authors": "J Xiong, G Liu, L Huang, C Wu, T Wu, Y Mu, Y Yao, H Shen, Z Wan, ...",
+    "venue": "arXiv preprint arXiv:2411.05902",
+    "year": 2024,
+    "citations": 27
+  },
+  {
+    "title": "Emos: Embodiment-aware heterogeneous multi-robot operating system with",
+    "authors": "J Chen, C Yu, X Zhou, T Xu, Y Mu, M Hu, W Shao, Y Wang, G Li, L Shao",
+    "venue": "arXiv preprint arXiv:2410.22662",
+    "year": 2024,
+    "citations": 6
+  },
+  {
+    "title": ": mbodiment-aware Heterogeneous ulti-robot perating ystem",
+    "authors": "J Chen, C Yu, X Zhou, T Xu, Y Mu, M Hu, W Shao, Y Wang, G Li, L Shao",
+    "venue": "arXiv e-prints, arXiv: 2410.22662",
+    "year": 2024,
+    "citations": 0
+  },
+  {
+    "title": "Robotwin: Dual-arm robot benchmark with generative digital twins (early",
+    "authors": "Y Mu, T Chen, S Peng, Z Chen, Z Gao, Y Zou, L Lin, Z Xie, P Luo",
+    "venue": "European Conference on Computer Vision, 264-273",
+    "year": 2024,
+    "citations": 49
+  },
+  {
+    "title": "Articulated object manipulation using online axis estimation with sam2-",
+    "authors": "X Wang, T Chen, Q Yu, T Xu, Z Chen, Y Fu, Z He, C Lu, Y Mu, P Luo",
+    "venue": "arXiv preprint arXiv:2409.16287",
+    "year": 2024,
+    "citations": 7
+  },
+  {
+    "title": "Cog-GA: A Large Language Models-based Generative Agent for Vision-",
+    "authors": "Z Li, Y Lu, Y Mu, H Qiao",
+    "venue": "arXiv preprint arXiv:2409.02522",
+    "year": 2024,
+    "citations": 2
+  },
+  {
+    "title": "Hiagent: Hierarchical working memory management for solving long-horizon",
+    "authors": "M Hu, T Chen, Q Chen, Y Mu, W Shao, P Luo",
+    "venue": "arXiv preprint arXiv:2408.09559",
+    "year": 2024,
+    "citations": 28
+  },
+  {
+    "title": "Doze: A dataset for open-vocabulary zero-shot object navigation in dynamic",
+    "authors": "J Ma, H Dai, Y Mu, P Wu, H Wang, X Chi, Y Fei, S Zhang, C Liu",
+    "venue": "IEEE Robotics and Automation Letters",
+    "year": 2024,
+    "citations": 8
+  },
+  {
+    "title": "Feasible reachable policy iteration",
+    "authors": "S Qin, Y Yang, Y Mu, J Li, W Zou, J Duan, SE Li",
+    "venue": "Forty-first International Conference on Machine Learning",
+    "year": 2024,
+    "citations": 4
+  },
+  {
+    "title": "Camon: Cooperative agents for multi-object navigation with llm-based",
+    "authors": "P Wu, Y Mu, K Zhou, J Ma, J Chen, C Liu",
+    "venue": "arXiv preprint arXiv:2407.00632",
+    "year": 2024,
+    "citations": 5
+  },
+  {
+    "title": "Dag-plan: Generating directed acyclic dependency graphs for dual-arm",
+    "authors": "Z Gao, Y Mu, J Qu, M Hu, S Peng, C Hou, L Guo, P Luo, S Zhang, Y Lu",
+    "venue": "arXiv preprint arXiv:2406.09953",
+    "year": 2024,
+    "citations": 13
+  },
+  {
+    "title": "Enhance sample efficiency and robustness of end-to-end urban autonomous",
+    "authors": "Z Gao, Y Mu, C Chen, J Duan, P Luo, Y Lu, SE Li",
+    "venue": "IEEE Transactions on Intelligent Transportation Systems 25 (10), 13067-13079",
+    "year": 2024,
+    "citations": 44
+  },
+  {
+    "title": "Prototypical context-aware dynamics for generalization in visual control with",
+    "authors": "J Wang, Q Zhang, Y Mu, D Li, D Zhao, Y Zhuang, P Luo, B Wang, J Hao",
+    "venue": "IEEE Transactions on Industrial Informatics 20 (9), 10717-10727",
+    "year": 2024,
+    "citations": 9
+  },
+  {
+    "title": "Learning reward for robot skills using large language models via self-",
+    "authors": "Y Zeng, Y Mu, L Shao",
+    "venue": "arXiv preprint arXiv:2405.07162",
+    "year": 2024,
+    "citations": 25
+  },
+  {
+    "title": "Manipose: A comprehensive benchmark for pose-aware object manipulation",
+    "authors": "Q Yu, C Hao, J Wang, W Liu, L Liu, Y Mu, Y You, H Yan, C Lu",
+    "venue": "arXiv preprint arXiv:2403.13365",
+    "year": 2024,
+    "citations": 7
+  },
+  {
+    "title": "Robocodex: Multimodal code generation for robotic behavior synthesis",
+    "authors": "Y Mu, J Chen, Q Zhang, S Chen, Q Yu, C Ge, R Chen, Z Liang, M Hu, ...",
+    "venue": "arXiv preprint arXiv:2402.16117",
+    "year": 2024,
+    "citations": 35
+  },
+  {
+    "title": "Roboscript: Code generation for free-form manipulation tasks across real",
+    "authors": "J Chen, Y Mu, Q Yu, T Wei, S Wu, Z Yuan, Z Liang, C Yang, K Zhang, ...",
+    "venue": "arXiv preprint arXiv:2402.14623",
+    "year": 2024,
+    "citations": 22
+  },
+  {
+    "title": "Chip placement method and apparatus, and storage medium",
+    "authors": "P Luo, Y Lai",
+    "venue": "US Patent App. 18/355,754",
+    "year": 2024,
+    "citations": 0
+  },
+  {
+    "title": "Voronav: Voronoi-based zero-shot object navigation with large language",
+    "authors": "P Wu, Y Mu, B Wu, Y Hou, J Ma, S Zhang, C Liu",
+    "venue": "arXiv preprint arXiv:2401.02695",
+    "year": 2024,
+    "citations": 56
+  },
+  {
+    "title": "Skilldiffuser: Interpretable hierarchical planning via skill abstractions in",
+    "authors": "Z Liang, Y Mu, H Ma, M Tomizuka, M Ding, P Luo",
+    "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern …",
+    "year": 2024,
+    "citations": 53
+  },
+  {
+    "title": "Embodiedgpt: Vision-language pre-training via embodied chain of thought",
+    "authors": "Y Mu, Q Zhang, M Hu, W Wang, M Ding, J Jin, B Wang, J Dai, Y Qiao, ...",
+    "venue": "Advances in Neural Information Processing Systems 36, 25081-25094",
+    "year": 2023,
+    "citations": 310
+  },
+  {
+    "title": "Tree-Planner: Efficient Close-loop Task Planning with Large Language",
+    "authors": "PL Mengkang Hu, Yao Mu, Xinmiao Yu, Mingyu Ding, Shiguang Wu, Wenqi Shao ...",
+    "venue": "ICLR 2024",
+    "year": 2023,
+    "citations": 0
+  },
+  {
+    "title": "Human-oriented representation learning for robotic manipulation",
+    "authors": "M Huo, M Ding, C Xu, T Tian, X Zhu, Y Mu, L Sun, M Tomizuka, W Zhan",
+    "venue": "arXiv preprint arXiv:2310.03023",
+    "year": 2023,
+    "citations": 12
+  },
+  {
+    "title": "Aligndiff: Aligning diverse human preferences via behavior-customisable",
+    "authors": "Z Dong, Y Yuan, J Hao, F Ni, Y Mu, Y Zheng, Y Hu, T Lv, C Fan, Z Hu",
+    "venue": "arXiv preprint arXiv:2310.02054",
+    "year": 2023,
+    "citations": 43
+  },
+  {
+    "title": "Sept: Towards efficient scene representation learning for motion prediction",
+    "authors": "Z Lan, Y Jiang, Y Mu, C Chen, SE Li",
+    "venue": "arXiv preprint arXiv:2309.15289",
+    "year": 2023,
+    "citations": 49
+  },
+  {
+    "title": "Neural MPC-based decision-making framework for autonomous driving in",
+    "authors": "Y Mu, Z Lan, C Chen, C Liu, P Luo, SE Li",
+    "venue": "2023 IEEE 26th International Conference on Intelligent Transportation …",
+    "year": 2023,
+    "citations": 2
+  },
+  {
+    "title": "Metadiffuser: Diffusion model as conditional planner for offline meta-rl",
+    "authors": "F Ni, J Hao, Y Mu, Y Yuan, Y Zheng, B Wang, Z Liang",
+    "venue": "International Conference on Machine Learning, 26087-26105",
+    "year": 2023,
+    "citations": 67
+  },
+  {
+    "title": "Adaptdiffuser: Diffusion models as adaptive self-evolving planners",
+    "authors": "Z Liang, Y Mu, M Ding, F Ni, M Tomizuka, P Luo",
+    "venue": "arXiv preprint arXiv:2302.01877",
+    "year": 2023,
+    "citations": 127
+  },
+  {
+    "title": "Languagempc: Large language models as decision makers for autonomous",
+    "authors": "H Sha, Y Mu, Y Jiang, L Chen, C Xu, P Luo, SE Li, M Tomizuka, W Zhan, ...",
+    "venue": "arXiv preprint arXiv:2310.03026",
+    "year": 2023,
+    "citations": 306
+  },
+  {
+    "title": "Multireact: Multimodal tools augmented reasoning-acting traces for",
+    "authors": "Z Yu, J Fu, Y Mu, C Wang, L Shao, Y Yang",
+    "venue": "",
+    "year": 2023,
+    "citations": 3
+  },
+  {
+    "title": "Ec2: Emergent communication for embodied control",
+    "authors": "Y Mu, S Yao, M Ding, P Luo, C Gan",
+    "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern …",
+    "year": 2023,
+    "citations": 18
+  },
+  {
+    "title": "Domino: Decomposed mutual information optimization for generalized",
+    "authors": "Y Mu, Y Zhuang, F Ni, B Wang, J Chen, J Hao, P Luo",
+    "venue": "Advances in Neural Information Processing Systems 35, 27563-27575",
+    "year": 2022,
+    "citations": 18
+  },
+  {
+    "title": "Maskplace: Fast chip placement via reinforced visual representation",
+    "authors": "Y Lai, Y Mu, P Luo",
+    "venue": "Advances in Neural Information Processing Systems 35, 24019-24030",
+    "year": 2022,
+    "citations": 82
+  },
+  {
+    "title": "Offline-to-Online Co-Evolutional User Simulator and Dialogue System",
+    "authors": "D Chi, Y Zhuang, Y Mu, B Wang, J Bao, Y Wang, Y Dong, X Jiang, Q Liu, ...",
+    "venue": "Proceedings of the Towards Semi-Supervised and Reinforced Task-Oriented …",
+    "year": 2022,
+    "citations": 0
+  },
+  {
+    "title": "Prototypical context-aware dynamics generalization for high-dimensional",
+    "authors": "J Wang, Y Mu, D Li, Q Zhang, D Zhao, Y Zhuang, P Luo, B Wang, J Hao",
+    "venue": "arXiv preprint arXiv:2211.12774",
+    "year": 2022,
+    "citations": 4
+  },
+  {
+    "title": "EUCLID: Towards efficient unsupervised reinforcement learning with multi-",
+    "authors": "Y Yuan, J Hao, F Ni, Y Mu, Y Zheng, Y Hu, J Liu, Y Chen, C Fan",
+    "venue": "arXiv preprint arXiv:2210.00498",
+    "year": 2022,
+    "citations": 17
+  },
+  {
+    "title": "Flow-based recurrent belief state learning for pomdps",
+    "authors": "X Chen, YM Mu, P Luo, S Li, J Chen",
+    "venue": "International Conference on Machine Learning, 3444-3468",
+    "year": 2022,
+    "citations": 28
+  },
+  {
+    "title": "Ctrlformer: Learning transferable state representation for visual control via",
+    "authors": "Y Mu, S Chen, M Ding, J Chen, R Chen, P Luo",
+    "venue": "arXiv preprint arXiv:2206.08883",
+    "year": 2022,
+    "citations": 15
+  },
+  {
+    "title": "CO^ 3: Cooperative unsupervised 3D representation learning for",
+    "authors": "R Chen, Y Mu, R Xu, W Shao, C Jiang, H Xu, Z Li, P Luo",
+    "venue": "arXiv preprint arXiv:2206.04028",
+    "year": 2022,
+    "citations": 36
+  },
+  {
+    "title": "Model-based chance-constrained reinforcement learning via separated",
+    "authors": "B Peng, J Duan, J Chen, SE Li, G Xie, C Zhang, Y Guan, Y Mu, E Sun",
+    "venue": "IEEE Transactions on Neural Networks and Learning Systems 35 (1), 466-478",
+    "year": 2022,
+    "citations": 32
+  },
+  {
+    "title": "Don't touch what matters: Task-aware Lipschitz data augmentation for visual",
+    "authors": "Z Yuan, G Ma, Y Mu, B Xia, B Yuan, X Wang, P Luo, H Xu",
+    "venue": "arXiv preprint arXiv:2202.09982",
+    "year": 2022,
+    "citations": 41
+  },
+  {
+    "title": "SEM2: Enhance Sample Efficiency and Robustness of End-to-end Urban",
+    "authors": "Z Gao, Y Mu, R Shen, C Chen, Y Ren, J Chen, SE Li, P Luo, Y Lu",
+    "venue": "Deep Reinforcement Learning Workshop NeurIPS 2022",
+    "year": 2022,
+    "citations": 1
+  },
+  {
+    "title": "Scale-equivalent distillation for semi-supervised object detection",
+    "authors": "Q Guo, Y Mu, J Chen, T Wang, Y Yu, P Luo",
+    "venue": "Proceedings of the IEEE/CVF conference on computer vision and pattern …",
+    "year": 2022,
+    "citations": 46
+  },
+  {
+    "title": "Model-based actor-critic with chance constraint for stochastic system",
+    "authors": "B Peng, Y Mu, Y Guan, SE Li, Y Yin, J Chen",
+    "venue": "2021 60th IEEE Conference on Decision and Control (CDC), 4694-4700",
+    "year": 2021,
+    "citations": 15
+  },
+  {
+    "title": "Model-based reinforcement learning via imagination with derived memory",
+    "authors": "Y Mu, Y Zhuang, B Wang, G Zhu, W Liu, J Chen, P Luo, S Li, C Zhang, ...",
+    "venue": "Advances in Neural Information Processing Systems 34, 9493-9505",
+    "year": 2021,
+    "citations": 10
+  },
+  {
+    "title": "Separated proportional-integral lagrangian for chance constrained",
+    "authors": "B Peng, Y Mu, J Duan, Y Guan, SE Li, J Chen",
+    "venue": "2021 IEEE Intelligent Vehicles Symposium (IV), 193-199",
+    "year": 2021,
+    "citations": 24
+  },
+  {
+    "title": "Steadily learn to drive with virtual memory",
+    "authors": "Y Zhang, Y Mu, Y Yang, Y Guan, SE Li, Q Sun, J Chen",
+    "venue": "arXiv preprint arXiv:2102.08072",
+    "year": 2021,
+    "citations": 4
+  },
+  {
+    "title": "Mixed reinforcement learning for efficient policy optimization in stochastic",
+    "authors": "Y Mu, B Peng, Z Gu, SE Li, C Liu, B Nie, J Zheng, B Zhang",
+    "venue": "2020 20th International Conference on Control, Automation and Systems (ICCAS …",
+    "year": 2020,
+    "citations": 19
+  },
+  {
+    "title": "IGRNet: a deep learning model for non-invasive, real-time diagnosis of",
+    "authors": "L Wang, Y Mu, J Zhao, X Wang, H Che",
+    "venue": "Sensors 20 (9), 2556",
+    "year": 2020,
+    "citations": 40
+  },
+  {
+    "title": "Mixed reinforcement learning with additive stochastic uncertainty",
+    "authors": "Y Mu, SE Li, C Liu, Q Sun, B Nie, B Cheng, B Peng",
+    "venue": "arXiv preprint arXiv:2003.00848",
+    "year": 2020,
+    "citations": 2
+  }
+];
+
+        // State
+        let filteredPublications = [...publicationsData];
+        let searchTerm = '';
+        let selectedYear = 'all';
+        let sortBy = 'year';
+
+        // DOM elements
+        const searchInput = document.getElementById('search-input');
+        const yearFilter = document.getElementById('year-filter');
+        const sortSelect = document.getElementById('sort-select');
+        const publicationsList = document.getElementById('publications-list');
+        const noResults = document.getElementById('no-results');
+        const resultsCount = document.getElementById('results-count');
+
+        // Initialize
+        function init() {
+            populateYearFilter();
+            updateStats();
+            filterAndSort();
+            
+            // Event listeners
+            searchInput.addEventListener('input', handleSearch);
+            yearFilter.addEventListener('change', handleYearFilter);
+            sortSelect.addEventListener('change', handleSort);
+        }
+
+        function populateYearFilter() {
+            const years = [...new Set(publicationsData.map(pub => pub.year))].sort((a, b) => b - a);
+            years.forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearFilter.appendChild(option);
+            });
+        }
+
+        function updateStats() {
+            const totalCitations = publicationsData.reduce((sum, pub) => sum + pub.citations, 0);
+            const totalPapers = publicationsData.length;
+            const years = publicationsData.map(p => p.year);
+            const yearRange = `${Math.min(...years)}-${Math.max(...years)}`;
+            
+            document.getElementById('total-papers').textContent = `${totalPapers} Publications`;
+            document.getElementById('total-citations').textContent = `${totalCitations} Citations`;
+            document.getElementById('year-range').textContent = yearRange;
+        }
+
+        function handleSearch(e) {
+            searchTerm = e.target.value.toLowerCase();
+            filterAndSort();
+        }
+
+        function handleYearFilter(e) {
+            selectedYear = e.target.value;
+            filterAndSort();
+        }
+
+        function handleSort(e) {
+            sortBy = e.target.value;
+            filterAndSort();
+        }
+
+        function filterAndSort() {
+            // Filter
+            filteredPublications = publicationsData.filter(pub => {
+                const matchesSearch = pub.title.toLowerCase().includes(searchTerm) ||
+                                    pub.authors.toLowerCase().includes(searchTerm);
+                const matchesYear = selectedYear === 'all' || pub.year.toString() === selectedYear;
+                return matchesSearch && matchesYear;
+            });
+
+            // Sort
+            filteredPublications.sort((a, b) => {
+                if (sortBy === 'year') return b.year - a.year;
+                if (sortBy === 'citations') return b.citations - a.citations;
+                if (sortBy === 'title') return a.title.localeCompare(b.title);
+                return 0;
+            });
+
+            renderPublications();
+        }
+
+        function getVenueType(venue) {
+            if (venue.includes('arXiv')) return 'preprint';
+            if (venue.includes('Conference') || venue.includes('CVPR') || venue.includes('NeurIPS') || venue.includes('ICLR')) return 'conference';
+            if (venue.includes('Transactions') || venue.includes('Letters')) return 'journal';
+            if (venue.includes('Patent')) return 'patent';
+            if (venue.includes('Workshop')) return 'workshop';
+            return 'other';
+        }
+
+        function renderPublications() {
+            if (filteredPublications.length === 0) {
+                publicationsList.style.display = 'none';
+                noResults.style.display = 'block';
+                resultsCount.textContent = '';
+                return;
+            }
+
+            publicationsList.style.display = 'flex';
+            noResults.style.display = 'none';
+            
+            publicationsList.innerHTML = filteredPublications.map(pub => {
+                const venueType = getVenueType(pub.venue);
+                
+                return `
+                    <div class="publication">
+                        <div class="publication-content">
+                            <div class="publication-main">
+                                <h3 class="publication-title">${pub.title}</h3>
+                                
+                                ${pub.authors ? `
+                                <div class="publication-authors">
+                                    <svg class="authors-icon" viewBox="0 0 24 24">
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="9" cy="7" r="4"/>
+                                        <path d="m22 21-3-3"/>
+                                        <path d="m16 16 3 3"/>
+                                    </svg>
+                                    <span>${pub.authors}</span>
+                                </div>
+                                ` : ''}
+                                
+                                ${pub.venue ? `
+                                <div class="publication-venue">
+                                    <span class="venue-tag venue-${venueType}">${pub.venue}</span>
+                                </div>
+                                ` : ''}
+                            </div>
+                            
+                            <div class="publication-meta">
+                                <div class="meta-item">
+                                    <svg class="meta-icon" viewBox="0 0 24 24">
+                                        <path d="M8 2v4"/>
+                                        <path d="M16 2v4"/>
+                                        <rect width="18" height="18" x="3" y="4" rx="2"/>
+                                        <path d="M3 10h18"/>
+                                    </svg>
+                                    <span class="year">${pub.year}</span>
+                                </div>
+                                
+                                ${pub.citations > 0 ? `
+                                <div class="meta-item">
+                                    <svg class="meta-icon" viewBox="0 0 24 24">
+                                        <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                                        <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                                    </svg>
+                                    <span>${pub.citations} citations</span>
+                                </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            resultsCount.textContent = `Showing ${filteredPublications.length} of ${publicationsData.length} publications`;
+        }
+
+        // Initialize the app
+        init();
+    </script>
 </body>
 </html>
+
