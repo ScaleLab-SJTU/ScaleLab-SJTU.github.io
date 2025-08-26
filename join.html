@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleLab - 上海交通大学空间认知与机器人自主智能实验室</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #3730a3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>') no-repeat center center;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 10;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .sjtu-logo {
+            width: 60px;
+            height: 60px;
+            background: #dc2626;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .university-name {
+            color: #ef4444;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .highlight {
+            background: linear-gradient(135deg, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #bfdbfe;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.6);
+            animation: bounce 2s infinite;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #1f2937;
+        }
+
+        .section-divider {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            margin: 0 auto 50px;
+            border-radius: 2px;
+        }
+
+        .about-section {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #4b5563;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mentor Section */
+        .mentor-section {
+            background: linear-gradient(135deg, #f9fafb, #dbeafe);
+        }
+
+        .mentor-card {
+            background: white;
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .mentor-avatar {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .mentor-info h3 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .mentor-title {
+            color: #3b82f6;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .mentor-description {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 30px;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .award-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            color: #4b5563;
+        }
+
+        .award-icon {
+            color: #fbbf24;
+            font-size: 20px;
+        }
+
+        /* Goals Section */
+        .goals-section {
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: white;
+        }
+
+        .goals-section .section-title {
+            color: white;
+        }
+
+        .goals-section .section-divider {
+            background: linear-gradient(135deg, #60a5fa, #a855f7);
+        }
+
+        .goals-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .goals-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .goal-icon {
+            font-size: 4rem;
+        }
+
+        .goals-text {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .highlight-text {
+            color: #60a5fa;
+            font-weight: bold;
+        }
+
+        .highlight-purple {
+            color: #a855f7;
+            font-weight: bold;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #dbeafe, #ede9fe);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            color: #3b82f6;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        /* Internship Section */
+        .internship-section {
+            background: linear-gradient(135deg, #f9fafb, #dbeafe);
+        }
+
+        .internship-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .internship-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .internship-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .internship-header {
+            padding: 30px;
+            color: white;
+            text-align: center;
+        }
+
+        .internship-header.pink {
+            background: linear-gradient(135deg, #ec4899, #f43f5e);
+        }
+
+        .internship-header.blue {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        }
+
+        .internship-header.purple {
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+        }
+
+        .internship-header h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .internship-content {
+            padding: 30px;
+        }
+
+        .internship-list {
+            list-style: none;
+        }
+
+        .internship-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .internship-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        .internship-dot.pink {
+            background: linear-gradient(135deg, #ec4899, #f43f5e);
+        }
+
+        .internship-dot.blue {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        }
+
+        .internship-dot.purple {
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .footer h2 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .footer-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 30px 0;
+        }
+
+        .footer-copyright {
+            color: #bfdbfe;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .mentor-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 30px;
+            }
+
+            .goals-text {
+                font-size: 1.2rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .internship-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .university-name {
+                font-size: 16px;
+            }
+
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Icons using Unicode symbols */
+        .icon-brain::before { content: '🧠'; }
+        .icon-cpu::before { content: '💻'; }
+        .icon-zap::before { content: '⚡'; }
+        .icon-book::before { content: '📚'; }
+        .icon-award::before { content: '🏆'; }
+        .icon-rocket::before { content: '🚀'; }
+        .icon-users::before { content: '👥'; }
+        .icon-link::before { content: '🔗'; }
+        .icon-mail::before { content: '📧'; }
+        .icon-map::before { content: '📍'; }
+        .icon-chevron::before { content: '⌄'; }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-header">
+                <div class="sjtu-logo">SJTU</div>
+                <div class="university-name">上海交通大学</div>
+                <div class="university-name">人工智能研究院</div>
+            </div>
+            
+            <h1>
+                欢迎了解和加入
+                <span class="highlight">ScaleLab!</span>
+            </h1>
+            
+            <p>上海交通大学空间认知与机器人自主智能实验室</p>
+            
+            <button class="cta-button" onclick="scrollToSection('about')">
+                了解更多 <span class="icon-chevron"></span>
+            </button>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span class="icon-chevron"></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title">实验室介绍</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-text fade-in">
+                    <p>
+                        上海交通大学空间认知与机器人自主智能实验室（ScaleLab）隶属于上海交通大学人工智能研究院，
+                        主要从事具身智能和机器人领域前沿的学术研究，主要在 RSS/CVPR/ICML/NeurIPS 等顶级学术会议上发表研究成果。
+                    </p>
+                    <p>
+                        我们与工业界紧密合作，积极推进学术成果的应用和落地（如智元机器人、松灵机器人、地平线地瓜机器人、
+                        傅立叶机器人、乐聚机器人、PNDbotics、光轮智能等）。
+                    </p>
+                    <p>
+                        实验室和上海人工智能实验室等机构设有联合培养实习生，表现优秀者可推荐联合培养博士。
+                    </p>
+                </div>
+                
+                <div class="about-image fade-in">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'><rect width='600' height='400' fill='%23f3f4f6'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' font-family='Arial' font-size='24' fill='%236b7280'>机器人实验室</text></svg>" alt="Robot Lab" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentor Section -->
+    <section class="section mentor-section">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title">导师简介</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="mentor-card fade-in">
+                <div class="mentor-avatar">穆尧</div>
+                
+                <div class="mentor-info">
+                    <h3>穆尧教授</h3>
+                    <p class="mentor-title">长聘教轨助理教授</p>
+                    
+                    <p class="mentor-description">
+                        上海交通大学人工智能研究院长聘教轨助理教授，先后毕业于清华大学和香港大学计算机系，
+                        共在RSS, NeurIPS, ICML, ICLR, CVPR等顶会顶刊发表论文30余篇，谷歌学术引用超1900余次。
+                    </p>
+                    
+                    <div class="awards-grid">
+                        <div class="award-item">
+                            <span class="award-icon icon-award"></span>
+                            <span>ECCV具身智能研讨会最优论文奖</span>
+                        </div>
+                        <div class="award-item">
+                            <span class="award-icon icon-award"></span>
+                            <span>IEEE ICCAS2020大会最优学生论文奖</span>
+                        </div>
+                        <div class="award-item">
+                            <span class="award-icon icon-award"></span>
+                            <span>IEEE IV2021最优学生论文提名奖</span>
+                        </div>
+                        <div class="award-item">
+                            <span class="award-icon icon-award"></span>
+                            <span>香港博士政府奖学金</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section class="section goals-section">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title">实验室的目标</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="goals-card fade-in">
+                <div class="goals-icons">
+                    <span class="goal-icon icon-brain" style="color: #60a5fa;"></span>
+                    <span class="goal-icon icon-cpu" style="color: #a855f7;"></span>
+                    <span class="goal-icon icon-zap" style="color: #fbbf24;"></span>
+                </div>
+                
+                <p class="goals-text">
+                    构建多模态大模型驱动的 <span class="highlight-text">"认知-控制"</span> 闭环交互体系，
+                    实现高层认知规划与底层运动控制的深度协同，开发具备人类级多模态感知能力与敏捷技能学习机制的
+                    <span class="highlight-purple">具身智能体</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section benefits-section">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title">你将获得</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon icon-book"></div>
+                    <h3>个性化学术指导</h3>
+                    <p>因材施教，提供个性化的学术指导和充足的科研资源</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon icon-cpu"></div>
+                    <h3>顶级科研资源</h3>
+                    <p>包括高性能算力、实验场地和设备等完善的研究条件</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon icon-award"></div>
+                    <h3>顶级会议发表</h3>
+                    <p>共同发表人工智能顶级会议文章，提升学术影响力</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon icon-rocket"></div>
+                    <h3>企业实习机会</h3>
+                    <p>推荐进入国内外顶尖公司实习或全职工作</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon icon-users"></div>
+                    <h3>深造推荐</h3>
+                    <p>推荐到知名高校继续深造，拓展发展空间</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon icon-link"></div>
+                    <h3>国际合作</h3>
+                    <p>与国内外一流高校和企业合作、访学机会</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internship Section -->
+    <section class="section internship-section">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title">实习方向</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="internship-grid">
+                <div class="internship-card fade-in">
+                    <div class="internship-header pink">
+                        <h3>人形机器人实习生</h3>
+                    </div>
+                    <div class="internship-content">
+                        <ul class="internship-list">
+                            <li>
+                                <div class="internship-dot pink"></div>
+                                <span>全尺寸人形机器人全身运动控制</span>
+                            </li>
+                            <li>
+                                <div class="internship-dot pink"></div>
+                                <span>复杂操作任务的规划与执行</span>
+                            </li>
+                            <li>
+                                <div class="internship-dot pink"></div>
+                                <span>人形机器人的感知与交互能力开发</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="internship-card fade-in">
+                    <div class="internship-header blue">
+                        <h3>VLA端到端大模型</h3>
+                    </div>
+                    <div class="internship-content">
+                        <ul class="internship-list">
+                            <li>
+                                <div class="internship-dot blue"></div>
+                                <span>双臂机器人协作策略研究</span>
+                            </li>
+                            <li>
+                                <div class="internship-dot blue"></div>
+                                <span>端到端VLA模型的训练与优化</span>
+                            </li>
+                            <li>
+                                <div class="internship-dot blue"></div>
+                                <span>VLA大模型的 RLHF</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="internship-card fade-in">
+                    <div class="internship-header purple">
+                        <h3>RoboTwin仿真开发</h3>
+                    </div>
+                    <div class="internship-content">
+                        <ul class="internship-list">
+                            <li>
+                                <div class="internship-dot purple"></div>
+                                <span>机器人仿真环境开发与优化</span>
+                            </li>
+                            <li>
+                                <div class="internship-dot purple"></div>
+                                <span>专家数据自动生成技术研究</span>
+                            </li>
+                            <li>
+                                <div class="internship-dot purple"></div>
+                                <span>仿真到现实迁移(Sim2Real)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="fade-in">
+                <h2>为智慧塑形，为机器注灵！</h2>
+                
+                <div class="footer-links">
+                    <a href="#" class="footer-link">
+                        <span class="icon-mail"></span>
+                        <span>联系我们</span>
+                    </a>
+                    <a href="#" class="footer-link">
+                        <span class="icon-map"></span>
+                        <span>上海交通大学</span>
+                    </a>
+                </div>
+                
+                <div class="footer-divider"></div>
+                
+                <p class="footer-copyright">
+                    © 2024 ScaleLab - 上海交通大学空间认知与机器人自主智能实验室
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.benefit-card, .internship-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Add click effect to CTA button
+            const ctaButton = document.querySelector('.cta-button');
+            ctaButton.addEventListener('click', () => {
+                ctaButton.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    ctaButton.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>
+
