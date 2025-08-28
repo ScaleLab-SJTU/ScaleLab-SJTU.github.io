@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>具身智能简易入门指南</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -263,22 +266,39 @@
 </head>
 <body>
     <header>
-        <nav class="container">
-            <div class="logo">具身智能指南</div>
-            <ul class="nav-links">
-                 <li><a href="https://ScaleLab-SJTU.github.io">首页</a></li>
-                <li><a href="#manipulation">操作与视觉语言模型</a></li>
-                <li><a href="#simulation">仿真平台</a></li>
-                <li><a href="#humanoid">人形机器人</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <div class="logo">
+                <h1>ScaleLab</h1>
+                <p>Spatial Cognition and Robotic Automative Learning Laboratory</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="people.html">团队人员</a></li>
+                      <li><a href="publications.html">论文发表</a></li>
+                    <li><a href="join.html">加入我们</a></li>
+                    <li><a href="start.html">AI基础入门指南</a></li>
+                    <li><a href="embodied_guide.html" class="active">具身智能入门指南</a></li>
+                    <li><a href="vapourx.html">VapourX社区</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <h1>具身智能简易入门指南</h1>
-            <p>探索具身智能前沿研究，了解最新论文和技术进展</p>
+            <h1 style="color: #667eea;">具身智能简易入门指南</h1>
+            <p>探索具身智能前沿研究</p>
             <a href="#manipulation" class="hero-button">开始探索</a>
+            <br>
+            <br>
+            <p style="font-size: smaller; color: grey">本指南摘自VapourX具身社区PaperList中的核心内容, 可以在一下链接查看更加丰富的内容！</p>
+            <div style="display: inline-flex; justify-content: center; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 10px; background-color: #343358;">
+                <a href="https://vapour-x.cn/docs/" style="font-size: smaller; color: #667eea;">VapourX具身社区PaperList</a>
+            </div>
         </div>
     </section>
 
@@ -461,6 +481,7 @@
             }
         });
     </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
 

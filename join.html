@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ScaleLab - 上海交通大学空间认知与机器人自主智能实验室</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -430,7 +433,10 @@
         .internship-dot.purple {
             background: linear-gradient(135deg, #8b5cf6, #6366f1);
         }
-
+        
+        .footer-content {
+            color: #edeef0;
+        }
         /* Footer */
         .footer {
             background: linear-gradient(135deg, #0f172a, #1e3a8a);
@@ -576,16 +582,38 @@
     </style>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>ScaleLab</h1>
+                <p>Spatial Cognition and Robotic Automative Learning Laboratory</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="people.html">团队人员</a></li>
+                      <li><a href="publications.html">论文发表</a></li>
+                    <li><a href="join.html" class="active">加入我们</a></li>
+                    <li><a href="start.html">AI基础入门指南</a></li>
+                    <li><a href="embodied_guide.html">具身智能入门指南</a></li>
+                    <li><a href="vapourx.html">VapourX社区</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-header">
                 <div class="sjtu-logo">SJTU</div>
-                <div class="university-name">上海交通大学</div>
-                <div class="university-name">人工智能研究院</div>
+                <div class="university-name" style="color: #667eea;">上海交通大学</div>
+                <div class="university-name" style="color: #667eea;">人工智能研究院</div>
             </div>
             
-            <h1>
+            <h1 style="color: #667eea;">
                 欢迎了解和加入
                 <span class="highlight">ScaleLab!</span>
             </h1>
@@ -888,7 +916,7 @@
     <footer class="footer">
         <div class="container">
             <div class="fade-in">
-                <h2>为智慧塑形，为机器注灵！</h2>
+                <h2 style="color: #667eea;">为智慧塑形，为机器注灵！</h2>
                 
                 <div class="footer-links">
                     <a href="#" class="footer-link">
@@ -966,5 +994,6 @@
             });
         });
     </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
